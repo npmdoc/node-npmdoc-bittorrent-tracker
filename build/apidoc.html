@@ -1,0 +1,5538 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/webtorrent/bittorrent-tracker#readme"
+
+    >bittorrent-tracker (v9.2.2)</a>
+</h1>
+<h4>Simple, robust, BitTorrent tracker (client & server) implementation</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.bittorrent-tracker">module bittorrent-tracker</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.bittorrent-tracker">
+            function <span class="apidocSignatureSpan"></span>bittorrent-tracker
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Client">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.</span>Client
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.</span>Server
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.Swarm">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.</span>Server.Swarm
+            <span class="apidocSignatureSpan">(infoHash, server)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.http_tracker">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.</span>http_tracker
+            <span class="apidocSignatureSpan">(client, announceUrl, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.scrape">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.</span>scrape
+            <span class="apidocSignatureSpan">(opts, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.super_">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.tracker">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.</span>tracker
+            <span class="apidocSignatureSpan">(client, announceUrl)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.udp_tracker">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.</span>udp_tracker
+            <span class="apidocSignatureSpan">(client, announceUrl, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.websocket_tracker">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.</span>websocket_tracker
+            <span class="apidocSignatureSpan">(client, announceUrl, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.</span>Client.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.</span>Server.Swarm.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.</span>Server.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.</span>common</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.</span>common_node</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.</span>http_tracker.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.</span>tracker.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.</span>udp_tracker.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.</span>websocket_tracker.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.bittorrent-tracker.Client">module bittorrent-tracker.Client</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Client.Client">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.</span>Client
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Client.Server">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Client.</span>Server
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Client.scrape">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Client.</span>scrape
+            <span class="apidocSignatureSpan">(opts, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Client.super_">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Client.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.bittorrent-tracker.Client.prototype">module bittorrent-tracker.Client.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Client.prototype._announce">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Client.prototype.</span>_announce
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Client.prototype._defaultAnnounceOpts">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Client.prototype.</span>_defaultAnnounceOpts
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Client.prototype.complete">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Client.prototype.</span>complete
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Client.prototype.destroy">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Client.prototype.</span>destroy
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Client.prototype.scrape">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Client.prototype.</span>scrape
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Client.prototype.setInterval">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Client.prototype.</span>setInterval
+            <span class="apidocSignatureSpan">(intervalMs)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Client.prototype.start">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Client.prototype.</span>start
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Client.prototype.stop">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Client.prototype.</span>stop
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Client.prototype.update">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Client.prototype.</span>update
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.bittorrent-tracker.Server">module bittorrent-tracker.Server</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.Server">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.</span>Server
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.Swarm">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.</span>Swarm
+            <span class="apidocSignatureSpan">(infoHash, server)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.super_">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.bittorrent-tracker.Server.Swarm">module bittorrent-tracker.Server.Swarm</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.Swarm.Swarm">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.</span>Swarm
+            <span class="apidocSignatureSpan">(infoHash, server)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.bittorrent-tracker.Server.Swarm.prototype">module bittorrent-tracker.Server.Swarm.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.Swarm.prototype._getPeers">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.Swarm.prototype.</span>_getPeers
+            <span class="apidocSignatureSpan">(numwant, ownPeerId, isWebRTC)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.Swarm.prototype._onAnnounceCompleted">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.Swarm.prototype.</span>_onAnnounceCompleted
+            <span class="apidocSignatureSpan">(params, peer, id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.Swarm.prototype._onAnnounceStarted">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.Swarm.prototype.</span>_onAnnounceStarted
+            <span class="apidocSignatureSpan">(params, peer, id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.Swarm.prototype._onAnnounceStopped">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.Swarm.prototype.</span>_onAnnounceStopped
+            <span class="apidocSignatureSpan">(params, peer, id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.Swarm.prototype._onAnnounceUpdate">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.Swarm.prototype.</span>_onAnnounceUpdate
+            <span class="apidocSignatureSpan">(params, peer, id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.Swarm.prototype.announce">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.Swarm.prototype.</span>announce
+            <span class="apidocSignatureSpan">(params, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.Swarm.prototype.scrape">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.Swarm.prototype.</span>scrape
+            <span class="apidocSignatureSpan">(params, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.bittorrent-tracker.Server.prototype">module bittorrent-tracker.Server.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.prototype._onAnnounce">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>_onAnnounce
+            <span class="apidocSignatureSpan">(params, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.prototype._onError">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>_onError
+            <span class="apidocSignatureSpan">(err)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.prototype._onRequest">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>_onRequest
+            <span class="apidocSignatureSpan">(params, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.prototype._onScrape">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>_onScrape
+            <span class="apidocSignatureSpan">(params, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.prototype._onWebSocketClose">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>_onWebSocketClose
+            <span class="apidocSignatureSpan">(socket)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.prototype._onWebSocketError">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>_onWebSocketError
+            <span class="apidocSignatureSpan">(socket, err)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.prototype._onWebSocketRequest">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>_onWebSocketRequest
+            <span class="apidocSignatureSpan">(socket, opts, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.prototype._onWebSocketSend">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>_onWebSocketSend
+            <span class="apidocSignatureSpan">(socket, err)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.prototype.close">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>close
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.prototype.createSwarm">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>createSwarm
+            <span class="apidocSignatureSpan">(infoHash, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.prototype.getSwarm">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>getSwarm
+            <span class="apidocSignatureSpan">(infoHash, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.prototype.listen">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>listen
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.prototype.onHttpRequest">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>onHttpRequest
+            <span class="apidocSignatureSpan">(req, res, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.prototype.onUdpRequest">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>onUdpRequest
+            <span class="apidocSignatureSpan">(msg, rinfo)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.Server.prototype.onWebSocketConnection">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>onWebSocketConnection
+            <span class="apidocSignatureSpan">(socket, opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.bittorrent-tracker.common">module bittorrent-tracker.common</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.common.binaryToHex">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.common.</span>binaryToHex
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.common.hexToBinary">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.common.</span>hexToBinary
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.common.querystringParse">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.common.</span>querystringParse
+            <span class="apidocSignatureSpan">(q)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.common.querystringStringify">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.common.</span>querystringStringify
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.common.toUInt32">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.common.</span>toUInt32
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">bittorrent-tracker.common.</span>DEFAULT_ANNOUNCE_PEERS</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">bittorrent-tracker.common.</span>DESTROY_TIMEOUT</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">bittorrent-tracker.common.</span>MAX_ANNOUNCE_PEERS</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">bittorrent-tracker.common.</span>REQUEST_TIMEOUT</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.common.</span>ACTIONS</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.common.</span>CONNECTION_ID</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.common.</span>EVENTS</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.common.</span>EVENT_IDS</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.common.</span>EVENT_NAMES</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.common.</span>IPV4_RE</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.common.</span>IPV6_RE</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.common.</span>REMOVE_IPV4_MAPPED_IPV6_RE</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.bittorrent-tracker.common_node">module bittorrent-tracker.common_node</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.common_node.querystringParse">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.common_node.</span>querystringParse
+            <span class="apidocSignatureSpan">(q)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.common_node.querystringStringify">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.common_node.</span>querystringStringify
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.common_node.toUInt32">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.common_node.</span>toUInt32
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">bittorrent-tracker.common_node.</span>DESTROY_TIMEOUT</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">bittorrent-tracker.common_node.</span>REQUEST_TIMEOUT</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.common_node.</span>ACTIONS</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.common_node.</span>CONNECTION_ID</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.common_node.</span>EVENTS</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.common_node.</span>EVENT_IDS</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.common_node.</span>EVENT_NAMES</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.common_node.</span>IPV4_RE</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.common_node.</span>IPV6_RE</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bittorrent-tracker.common_node.</span>REMOVE_IPV4_MAPPED_IPV6_RE</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.bittorrent-tracker.http_tracker">module bittorrent-tracker.http_tracker</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.http_tracker.http_tracker">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.</span>http_tracker
+            <span class="apidocSignatureSpan">(client, announceUrl, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.http_tracker.super_">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.http_tracker.</span>super_
+            <span class="apidocSignatureSpan">(client, announceUrl)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.bittorrent-tracker.http_tracker.prototype">module bittorrent-tracker.http_tracker.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.http_tracker.prototype._onAnnounceResponse">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.http_tracker.prototype.</span>_onAnnounceResponse
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.http_tracker.prototype._onScrapeResponse">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.http_tracker.prototype.</span>_onScrapeResponse
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.http_tracker.prototype._request">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.http_tracker.prototype.</span>_request
+            <span class="apidocSignatureSpan">(requestUrl, params, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.http_tracker.prototype.announce">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.http_tracker.prototype.</span>announce
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.http_tracker.prototype.destroy">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.http_tracker.prototype.</span>destroy
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.http_tracker.prototype.scrape">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.http_tracker.prototype.</span>scrape
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">bittorrent-tracker.http_tracker.prototype.</span>DEFAULT_ANNOUNCE_INTERVAL</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.bittorrent-tracker.tracker">module bittorrent-tracker.tracker</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.tracker.tracker">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.</span>tracker
+            <span class="apidocSignatureSpan">(client, announceUrl)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.tracker.super_">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.tracker.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.bittorrent-tracker.tracker.prototype">module bittorrent-tracker.tracker.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.tracker.prototype.setInterval">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.tracker.prototype.</span>setInterval
+            <span class="apidocSignatureSpan">(intervalMs)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.bittorrent-tracker.udp_tracker">module bittorrent-tracker.udp_tracker</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.udp_tracker.udp_tracker">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.</span>udp_tracker
+            <span class="apidocSignatureSpan">(client, announceUrl, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.udp_tracker.super_">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.udp_tracker.</span>super_
+            <span class="apidocSignatureSpan">(client, announceUrl)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.bittorrent-tracker.udp_tracker.prototype">module bittorrent-tracker.udp_tracker.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.udp_tracker.prototype._request">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.udp_tracker.prototype.</span>_request
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.udp_tracker.prototype.announce">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.udp_tracker.prototype.</span>announce
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.udp_tracker.prototype.destroy">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.udp_tracker.prototype.</span>destroy
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.udp_tracker.prototype.scrape">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.udp_tracker.prototype.</span>scrape
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">bittorrent-tracker.udp_tracker.prototype.</span>DEFAULT_ANNOUNCE_INTERVAL</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.bittorrent-tracker.websocket_tracker">module bittorrent-tracker.websocket_tracker</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.websocket_tracker.websocket_tracker">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.</span>websocket_tracker
+            <span class="apidocSignatureSpan">(client, announceUrl, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.websocket_tracker.super_">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.</span>super_
+            <span class="apidocSignatureSpan">(client, announceUrl)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.bittorrent-tracker.websocket_tracker.prototype">module bittorrent-tracker.websocket_tracker.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype._createPeer">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>_createPeer
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype._generateOffers">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>_generateOffers
+            <span class="apidocSignatureSpan">(numwant, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype._onAnnounceResponse">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>_onAnnounceResponse
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype._onScrapeResponse">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>_onScrapeResponse
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype._onSocketClose">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>_onSocketClose
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype._onSocketConnect">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>_onSocketConnect
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype._onSocketData">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>_onSocketData
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype._onSocketError">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>_onSocketError
+            <span class="apidocSignatureSpan">(err)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype._openSocket">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>_openSocket
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype._send">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>_send
+            <span class="apidocSignatureSpan">(params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype._startReconnectTimer">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>_startReconnectTimer
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype.announce">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>announce
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype.destroy">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>destroy
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype.scrape">
+            function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>scrape
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>DEFAULT_ANNOUNCE_INTERVAL</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.bittorrent-tracker" id="apidoc.module.bittorrent-tracker">module bittorrent-tracker</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.bittorrent-tracker" id="apidoc.element.bittorrent-tracker.bittorrent-tracker">
+        function <span class="apidocSignatureSpan"></span>bittorrent-tracker
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Client(opts) {
+  var self = this
+  if (!(self instanceof Client)) return new Client(opts)
+  EventEmitter.call(self)
+  if (!opts) opts = {}
+
+  if (!opts.peerId) throw new Error(&#x27;Option `peerId` is required&#x27;)
+  if (!opts.infoHash) throw new Error(&#x27;Option `infoHash` is required&#x27;)
+  if (!opts.announce) throw new Error(&#x27;Option `announce` is required&#x27;)
+  if (!process.browser &#x26;&#x26; !opts.port) throw new Error(&#x27;Option `port` is required&#x27;)
+
+  self.peerId = typeof opts.peerId === &#x27;string&#x27;
+    ? opts.peerId
+    : opts.peerId.toString(&#x27;hex&#x27;)
+  self._peerIdBuffer = Buffer.from(self.peerId, &#x27;hex&#x27;)
+  self._peerIdBinary = self._peerIdBuffer.toString(&#x27;binary&#x27;)
+
+  self.infoHash = typeof opts.infoHash === &#x27;string&#x27;
+    ? opts.infoHash
+    : opts.infoHash.toString(&#x27;hex&#x27;)
+  self._infoHashBuffer = Buffer.from(self.infoHash, &#x27;hex&#x27;)
+  self._infoHashBinary = self._infoHashBuffer.toString(&#x27;binary&#x27;)
+
+  debug(&#x27;new client %s&#x27;, self.infoHash)
+
+  self.destroyed = false
+
+  self._port = opts.port
+  self._getAnnounceOpts = opts.getAnnounceOpts
+  self._rtcConfig = opts.rtcConfig
+  self._userAgent = opts.userAgent
+
+  // Support lazy &#x27;wrtc&#x27; module initialization
+  // See: https://github.com/webtorrent/webtorrent-hybrid/issues/46
+  self._wrtc = typeof opts.wrtc === &#x27;function&#x27; ? opts.wrtc() : opts.wrtc
+
+  var announce = typeof opts.announce === &#x27;string&#x27;
+    ? [ opts.announce ]
+    : opts.announce == null ? [] : opts.announce
+
+  // Remove trailing slash from trackers to catch duplicates
+  announce = announce.map(function (announceUrl) {
+    announceUrl = announceUrl.toString()
+    if (announceUrl[announceUrl.length - 1] === &#x27;/&#x27;) {
+      announceUrl = announceUrl.substring(0, announceUrl.length - 1)
+    }
+    return announceUrl
+  })
+  announce = uniq(announce)
+
+  var webrtcSupport = self._wrtc !== false &#x26;&#x26; (!!self._wrtc || Peer.WEBRTC_SUPPORT)
+
+  self._trackers = announce
+    .map(function (announceUrl) {
+      var protocol = url.parse(announceUrl).protocol
+      if ((protocol === &#x27;http:&#x27; || protocol === &#x27;https:&#x27;) &#x26;&#x26;
+          typeof HTTPTracker === &#x27;function&#x27;) {
+        return new HTTPTracker(self, announceUrl)
+      } else if (protocol === &#x27;udp:&#x27; &#x26;&#x26; typeof UDPTracker === &#x27;function&#x27;) {
+        return new UDPTracker(self, announceUrl)
+      } else if ((protocol === &#x27;ws:&#x27; || protocol === &#x27;wss:&#x27;) &#x26;&#x26; webrtcSupport) {
+        // Skip ws:// trackers on https:// sites because they throw SecurityError
+        if (protocol === &#x27;ws:&#x27; &#x26;&#x26; typeof window !== &#x27;undefined&#x27; &#x26;&#x26;
+            window.location.protocol === &#x27;https:&#x27;) {
+          nextTickWarn(new Error(&#x27;Unsupported tracker protocol: &#x27; + announceUrl))
+          return null
+        }
+        return new WebSocketTracker(self, announceUrl)
+      } else {
+        nextTickWarn(new Error(&#x27;Unsupported tracker protocol: &#x27; + announceUrl))
+        return null
+      }
+    })
+    .filter(Boolean)
+
+  function nextTickWarn (err) {
+    process.nextTick(function () {
+      self.emit(&#x27;warning&#x27;, err)
+    })
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Client" id="apidoc.element.bittorrent-tracker.Client">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.</span>Client
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Client(opts) {
+  var self = this
+  if (!(self instanceof Client)) return new Client(opts)
+  EventEmitter.call(self)
+  if (!opts) opts = {}
+
+  if (!opts.peerId) throw new Error(&#x27;Option `peerId` is required&#x27;)
+  if (!opts.infoHash) throw new Error(&#x27;Option `infoHash` is required&#x27;)
+  if (!opts.announce) throw new Error(&#x27;Option `announce` is required&#x27;)
+  if (!process.browser &#x26;&#x26; !opts.port) throw new Error(&#x27;Option `port` is required&#x27;)
+
+  self.peerId = typeof opts.peerId === &#x27;string&#x27;
+    ? opts.peerId
+    : opts.peerId.toString(&#x27;hex&#x27;)
+  self._peerIdBuffer = Buffer.from(self.peerId, &#x27;hex&#x27;)
+  self._peerIdBinary = self._peerIdBuffer.toString(&#x27;binary&#x27;)
+
+  self.infoHash = typeof opts.infoHash === &#x27;string&#x27;
+    ? opts.infoHash
+    : opts.infoHash.toString(&#x27;hex&#x27;)
+  self._infoHashBuffer = Buffer.from(self.infoHash, &#x27;hex&#x27;)
+  self._infoHashBinary = self._infoHashBuffer.toString(&#x27;binary&#x27;)
+
+  debug(&#x27;new client %s&#x27;, self.infoHash)
+
+  self.destroyed = false
+
+  self._port = opts.port
+  self._getAnnounceOpts = opts.getAnnounceOpts
+  self._rtcConfig = opts.rtcConfig
+  self._userAgent = opts.userAgent
+
+  // Support lazy &#x27;wrtc&#x27; module initialization
+  // See: https://github.com/webtorrent/webtorrent-hybrid/issues/46
+  self._wrtc = typeof opts.wrtc === &#x27;function&#x27; ? opts.wrtc() : opts.wrtc
+
+  var announce = typeof opts.announce === &#x27;string&#x27;
+    ? [ opts.announce ]
+    : opts.announce == null ? [] : opts.announce
+
+  // Remove trailing slash from trackers to catch duplicates
+  announce = announce.map(function (announceUrl) {
+    announceUrl = announceUrl.toString()
+    if (announceUrl[announceUrl.length - 1] === &#x27;/&#x27;) {
+      announceUrl = announceUrl.substring(0, announceUrl.length - 1)
+    }
+    return announceUrl
+  })
+  announce = uniq(announce)
+
+  var webrtcSupport = self._wrtc !== false &#x26;&#x26; (!!self._wrtc || Peer.WEBRTC_SUPPORT)
+
+  self._trackers = announce
+    .map(function (announceUrl) {
+      var protocol = url.parse(announceUrl).protocol
+      if ((protocol === &#x27;http:&#x27; || protocol === &#x27;https:&#x27;) &#x26;&#x26;
+          typeof HTTPTracker === &#x27;function&#x27;) {
+        return new HTTPTracker(self, announceUrl)
+      } else if (protocol === &#x27;udp:&#x27; &#x26;&#x26; typeof UDPTracker === &#x27;function&#x27;) {
+        return new UDPTracker(self, announceUrl)
+      } else if ((protocol === &#x27;ws:&#x27; || protocol === &#x27;wss:&#x27;) &#x26;&#x26; webrtcSupport) {
+        // Skip ws:// trackers on https:// sites because they throw SecurityError
+        if (protocol === &#x27;ws:&#x27; &#x26;&#x26; typeof window !== &#x27;undefined&#x27; &#x26;&#x26;
+            window.location.protocol === &#x27;https:&#x27;) {
+          nextTickWarn(new Error(&#x27;Unsupported tracker protocol: &#x27; + announceUrl))
+          return null
+        }
+        return new WebSocketTracker(self, announceUrl)
+      } else {
+        nextTickWarn(new Error(&#x27;Unsupported tracker protocol: &#x27; + announceUrl))
+        return null
+      }
+    })
+    .filter(Boolean)
+
+  function nextTickWarn (err) {
+    process.nextTick(function () {
+      self.emit(&#x27;warning&#x27;, err)
+    })
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server" id="apidoc.element.bittorrent-tracker.Server">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.</span>Server
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Server(opts) {
+  var self = this
+  if (!(self instanceof Server)) return new Server(opts)
+  EventEmitter.call(self)
+  if (!opts) opts = {}
+
+  debug(&#x27;new server %s&#x27;, JSON.stringify(opts))
+
+  self.intervalMs = opts.interval
+    ? opts.interval
+    : 10 * 60 * 1000 // 10 min
+
+  self._trustProxy = !!opts.trustProxy
+  if (typeof opts.filter === &#x27;function&#x27;) self._filter = opts.filter
+
+  self.peersCacheLength = opts.peersCacheLength
+  self.peersCacheTtl = opts.peersCacheTtl
+
+  self._listenCalled = false
+  self.listening = false
+  self.destroyed = false
+  self.torrents = {}
+
+  self.http = null
+  self.udp4 = null
+  self.udp6 = null
+  self.ws = null
+
+  // start an http tracker unless the user explictly says no
+  if (opts.http !== false) {
+    self.http = http.createServer()
+    self.http.on(&#x27;error&#x27;, function (err) { self._onError(err) })
+    self.http.on(&#x27;listening&#x27;, onListening)
+
+    // Add default http request handler on next tick to give user the chance to add
+    // their own handler first. Handle requests untouched by user&#x27;s handler.
+    process.nextTick(function () {
+      self.http.on(&#x27;request&#x27;, function (req, res) {
+        if (res.headersSent) return
+        self.onHttpRequest(req, res)
+      })
+    })
+  }
+
+  // start a udp tracker unless the user explicitly says no
+  if (opts.udp !== false) {
+    var isNode10 = /^v0.10./.test(process.version)
+
+    self.udp4 = self.udp = dgram.createSocket(
+      isNode10 ? &#x27;udp4&#x27; : { type: &#x27;udp4&#x27;, reuseAddr: true }
+    )
+    self.udp4.on(&#x27;message&#x27;, function (msg, rinfo) { self.onUdpRequest(msg, rinfo) })
+    self.udp4.on(&#x27;error&#x27;, function (err) { self._onError(err) })
+    self.udp4.on(&#x27;listening&#x27;, onListening)
+
+    self.udp6 = dgram.createSocket(
+      isNode10 ? &#x27;udp6&#x27; : { type: &#x27;udp6&#x27;, reuseAddr: true }
+    )
+    self.udp6.on(&#x27;message&#x27;, function (msg, rinfo) { self.onUdpRequest(msg, rinfo) })
+    self.udp6.on(&#x27;error&#x27;, function (err) { self._onError(err) })
+    self.udp6.on(&#x27;listening&#x27;, onListening)
+  }
+
+  // start a websocket tracker (for WebTorrent) unless the user explicitly says no
+  if (opts.ws !== false) {
+    if (!self.http) {
+      self.http = http.createServer()
+      self.http.on(&#x27;error&#x27;, function (err) { self._onError(err) })
+      self.http.on(&#x27;listening&#x27;, onListening)
+
+      // Add default http request handler on next tick to give user the chance to add
+      // their own handler first. Handle requests untouched by user&#x27;s handler.
+      process.nextTick(function () {
+        self.http.on(&#x27;request&#x27;, function (req, res) {
+          if (res.headersSent) return
+          // For websocket trackers, we only need to handle the UPGRADE http method.
+          // Return 404 for all other request types.
+          res.statusCode = 404
+          res.end(&#x27;404 Not Found&#x27;)
+        })
+      })
+    }
+    self.ws = new WebSocketServer({
+      server: self.http,
+      perMessageDeflate: false,
+      clientTracking: false
+    })
+    self.ws.address = function () {
+      return self.http.address()
+    }
+    self.ws.on(&#x27;error&#x27;, function (err) { self._onError(err) })
+    self.ws.on(&#x27;connection&#x27;, function (socket) { self.onWebSocketConnection(socket) })
+  }
+
+  if (opts.stats !== false) {
+    if (!self.http) {
+      self.http = http.createServer()
+      self.http.on(&#x27;error&#x27;, function (err) { self._onError(err) })
+      self.http.on(&#x27;listening&#x27;, onListening)
+    }
+
+    // Http handler for &#x27;/stats&#x27; route
+    self.http.on(&#x27;request&#x27;, function (req, res) {
+      if (res.headersSent) return
+
+      var infoHashes = Object.keys(self.torrents)
+      var activeTorrents = 0
+      var allPeers = {}
+
+      function countPeers (filterFunction) {
+        var count = 0
+        var key
+
+        for (key in allPeers) {
+          if (allPeers.hasOwnProperty(key) &#x26;&#x26; filterFunction(allPeers[key])) {
+            count++
+          }
+        }
+
+        return count
+      }
+
+      function groupByClient () {
+        var clients = {}
+        for (var key in allPeers) {
+          if (allPeers.hasOwnProperty(key)) {
+            var peer = allPeers[key]
+
+            if (!clients[peer.client.client]) {
+              cli ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.Swarm" id="apidoc.element.bittorrent-tracker.Server.Swarm">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.</span>Server.Swarm
+        <span class="apidocSignatureSpan">(infoHash, server)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Swarm(infoHash, server) {
+  var self = this
+  self.infoHash = infoHash
+  self.complete = 0
+  self.incomplete = 0
+
+  self.peers = new LRU({
+    max: server.peersCacheLength || 1000,
+    maxAge: server.peersCacheTtl || 20 * 60 * 1000 // 20 minutes
+  })
+
+  // When a peer is evicted from the LRU store, send a synthetic &#x27;stopped&#x27; event
+  // so the stats get updated correctly.
+  self.peers.on(&#x27;evict&#x27;, function (data) {
+    var peer = data.value
+    var params = {
+      type: peer.type,
+      event: &#x27;stopped&#x27;,
+      numwant: 0,
+      peer_id: peer.peerId
+    }
+    self._onAnnounceStopped(params, peer, peer.peerId)
+    peer.socket = null
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.http_tracker" id="apidoc.element.bittorrent-tracker.http_tracker">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.</span>http_tracker
+        <span class="apidocSignatureSpan">(client, announceUrl, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function HTTPTracker(client, announceUrl, opts) {
+  var self = this
+  Tracker.call(self, client, announceUrl)
+  debug(&#x27;new http tracker %s&#x27;, announceUrl)
+
+  // Determine scrape url (if http tracker supports it)
+  self.scrapeUrl = null
+
+  var match = self.announceUrl.match(HTTP_SCRAPE_SUPPORT)
+  if (match) {
+    var pre = self.announceUrl.slice(0, match.index)
+    var post = self.announceUrl.slice(match.index + 9)
+    self.scrapeUrl = pre + &#x27;/scrape&#x27; + post
+  }
+
+  self.cleanupFns = []
+  self.maybeDestroyCleanup = null
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.scrape" id="apidoc.element.bittorrent-tracker.scrape">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.</span>scrape
+        <span class="apidocSignatureSpan">(opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">scrape = function (opts, cb) {
+  cb = once(cb)
+
+  if (!opts.infoHash) throw new Error(&#x27;Option `infoHash` is required&#x27;)
+  if (!opts.announce) throw new Error(&#x27;Option `announce` is required&#x27;)
+
+  var clientOpts = extend(opts, {
+    infoHash: Array.isArray(opts.infoHash) ? opts.infoHash[0] : opts.infoHash,
+    peerId: Buffer.from(&#x27;01234567890123456789&#x27;), // dummy value
+    port: 6881 // dummy value
+  })
+
+  var client = new Client(clientOpts)
+  client.once(&#x27;error&#x27;, cb)
+  client.once(&#x27;warning&#x27;, cb)
+
+  var len = Array.isArray(opts.infoHash) ? opts.infoHash.length : 1
+  var results = {}
+  client.on(&#x27;scrape&#x27;, function (data) {
+    len -= 1
+    results[data.infoHash] = data
+    if (len === 0) {
+      client.destroy()
+      var keys = Object.keys(results)
+      if (keys.length === 1) {
+        cb(null, results[keys[0]])
+      } else {
+        cb(null, results)
+      }
+    }
+  })
+
+  opts.infoHash = Array.isArray(opts.infoHash)
+    ? opts.infoHash.map(function (infoHash) {
+      return Buffer.from(infoHash, &#x27;hex&#x27;)
+    })
+    : Buffer.from(opts.infoHash, &#x27;hex&#x27;)
+  client.scrape({ infoHash: opts.infoHash })
+  return client
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// stop getting peers from the tracker, gracefully leave the swarm
+client.stop()
+
+// ungracefully leave the swarm (without sending final &#x27;stop&#x27; message)
+client.destroy()
+
+// scrape
+client.<span class="apidocCodeKeywordSpan">scrape</span>()
+
+client.on(&#x27;scrape&#x27;, function (data) {
+  console.log(&#x27;got a scrape response from tracker: &#x27; + data.announce)
+  console.log(&#x27;number of seeders in the swarm: &#x27; + data.complete)
+  console.log(&#x27;number of leechers in the swarm: &#x27; + data.incomplete)
+  console.log(&#x27;number of total downloads of this torrent: &#x27; + data.downloaded)
+})
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.super_" id="apidoc.element.bittorrent-tracker.super_">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.tracker" id="apidoc.element.bittorrent-tracker.tracker">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.</span>tracker
+        <span class="apidocSignatureSpan">(client, announceUrl)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Tracker(client, announceUrl) {
+  var self = this
+  EventEmitter.call(self)
+  self.client = client
+  self.announceUrl = announceUrl
+
+  self.interval = null
+  self.destroyed = false
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.udp_tracker" id="apidoc.element.bittorrent-tracker.udp_tracker">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.</span>udp_tracker
+        <span class="apidocSignatureSpan">(client, announceUrl, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function UDPTracker(client, announceUrl, opts) {
+  var self = this
+  Tracker.call(self, client, announceUrl)
+  debug(&#x27;new udp tracker %s&#x27;, announceUrl)
+
+  self.cleanupFns = []
+  self.maybeDestroyCleanup = null
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.websocket_tracker" id="apidoc.element.bittorrent-tracker.websocket_tracker">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.</span>websocket_tracker
+        <span class="apidocSignatureSpan">(client, announceUrl, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function WebSocketTracker(client, announceUrl, opts) {
+  var self = this
+  Tracker.call(self, client, announceUrl)
+  debug(&#x27;new websocket tracker %s&#x27;, announceUrl)
+
+  self.peers = {} // peers (offer id -&#x3e; peer)
+  self.socket = null
+
+  self.reconnecting = false
+  self.retries = 0
+  self.reconnectTimer = null
+
+  // Simple boolean flag to track whether the socket has received data from
+  // the websocket server since the last time socket.send() was called.
+  self.expectingResponse = false
+
+  self._openSocket()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.bittorrent-tracker.Client" id="apidoc.module.bittorrent-tracker.Client">module bittorrent-tracker.Client</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Client.Client" id="apidoc.element.bittorrent-tracker.Client.Client">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.</span>Client
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Client(opts) {
+  var self = this
+  if (!(self instanceof Client)) return new Client(opts)
+  EventEmitter.call(self)
+  if (!opts) opts = {}
+
+  if (!opts.peerId) throw new Error(&#x27;Option `peerId` is required&#x27;)
+  if (!opts.infoHash) throw new Error(&#x27;Option `infoHash` is required&#x27;)
+  if (!opts.announce) throw new Error(&#x27;Option `announce` is required&#x27;)
+  if (!process.browser &#x26;&#x26; !opts.port) throw new Error(&#x27;Option `port` is required&#x27;)
+
+  self.peerId = typeof opts.peerId === &#x27;string&#x27;
+    ? opts.peerId
+    : opts.peerId.toString(&#x27;hex&#x27;)
+  self._peerIdBuffer = Buffer.from(self.peerId, &#x27;hex&#x27;)
+  self._peerIdBinary = self._peerIdBuffer.toString(&#x27;binary&#x27;)
+
+  self.infoHash = typeof opts.infoHash === &#x27;string&#x27;
+    ? opts.infoHash
+    : opts.infoHash.toString(&#x27;hex&#x27;)
+  self._infoHashBuffer = Buffer.from(self.infoHash, &#x27;hex&#x27;)
+  self._infoHashBinary = self._infoHashBuffer.toString(&#x27;binary&#x27;)
+
+  debug(&#x27;new client %s&#x27;, self.infoHash)
+
+  self.destroyed = false
+
+  self._port = opts.port
+  self._getAnnounceOpts = opts.getAnnounceOpts
+  self._rtcConfig = opts.rtcConfig
+  self._userAgent = opts.userAgent
+
+  // Support lazy &#x27;wrtc&#x27; module initialization
+  // See: https://github.com/webtorrent/webtorrent-hybrid/issues/46
+  self._wrtc = typeof opts.wrtc === &#x27;function&#x27; ? opts.wrtc() : opts.wrtc
+
+  var announce = typeof opts.announce === &#x27;string&#x27;
+    ? [ opts.announce ]
+    : opts.announce == null ? [] : opts.announce
+
+  // Remove trailing slash from trackers to catch duplicates
+  announce = announce.map(function (announceUrl) {
+    announceUrl = announceUrl.toString()
+    if (announceUrl[announceUrl.length - 1] === &#x27;/&#x27;) {
+      announceUrl = announceUrl.substring(0, announceUrl.length - 1)
+    }
+    return announceUrl
+  })
+  announce = uniq(announce)
+
+  var webrtcSupport = self._wrtc !== false &#x26;&#x26; (!!self._wrtc || Peer.WEBRTC_SUPPORT)
+
+  self._trackers = announce
+    .map(function (announceUrl) {
+      var protocol = url.parse(announceUrl).protocol
+      if ((protocol === &#x27;http:&#x27; || protocol === &#x27;https:&#x27;) &#x26;&#x26;
+          typeof HTTPTracker === &#x27;function&#x27;) {
+        return new HTTPTracker(self, announceUrl)
+      } else if (protocol === &#x27;udp:&#x27; &#x26;&#x26; typeof UDPTracker === &#x27;function&#x27;) {
+        return new UDPTracker(self, announceUrl)
+      } else if ((protocol === &#x27;ws:&#x27; || protocol === &#x27;wss:&#x27;) &#x26;&#x26; webrtcSupport) {
+        // Skip ws:// trackers on https:// sites because they throw SecurityError
+        if (protocol === &#x27;ws:&#x27; &#x26;&#x26; typeof window !== &#x27;undefined&#x27; &#x26;&#x26;
+            window.location.protocol === &#x27;https:&#x27;) {
+          nextTickWarn(new Error(&#x27;Unsupported tracker protocol: &#x27; + announceUrl))
+          return null
+        }
+        return new WebSocketTracker(self, announceUrl)
+      } else {
+        nextTickWarn(new Error(&#x27;Unsupported tracker protocol: &#x27; + announceUrl))
+        return null
+      }
+    })
+    .filter(Boolean)
+
+  function nextTickWarn (err) {
+    process.nextTick(function () {
+      self.emit(&#x27;warning&#x27;, err)
+    })
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Client.Server" id="apidoc.element.bittorrent-tracker.Client.Server">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Client.</span>Server
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Server(opts) {
+  var self = this
+  if (!(self instanceof Server)) return new Server(opts)
+  EventEmitter.call(self)
+  if (!opts) opts = {}
+
+  debug(&#x27;new server %s&#x27;, JSON.stringify(opts))
+
+  self.intervalMs = opts.interval
+    ? opts.interval
+    : 10 * 60 * 1000 // 10 min
+
+  self._trustProxy = !!opts.trustProxy
+  if (typeof opts.filter === &#x27;function&#x27;) self._filter = opts.filter
+
+  self.peersCacheLength = opts.peersCacheLength
+  self.peersCacheTtl = opts.peersCacheTtl
+
+  self._listenCalled = false
+  self.listening = false
+  self.destroyed = false
+  self.torrents = {}
+
+  self.http = null
+  self.udp4 = null
+  self.udp6 = null
+  self.ws = null
+
+  // start an http tracker unless the user explictly says no
+  if (opts.http !== false) {
+    self.http = http.createServer()
+    self.http.on(&#x27;error&#x27;, function (err) { self._onError(err) })
+    self.http.on(&#x27;listening&#x27;, onListening)
+
+    // Add default http request handler on next tick to give user the chance to add
+    // their own handler first. Handle requests untouched by user&#x27;s handler.
+    process.nextTick(function () {
+      self.http.on(&#x27;request&#x27;, function (req, res) {
+        if (res.headersSent) return
+        self.onHttpRequest(req, res)
+      })
+    })
+  }
+
+  // start a udp tracker unless the user explicitly says no
+  if (opts.udp !== false) {
+    var isNode10 = /^v0.10./.test(process.version)
+
+    self.udp4 = self.udp = dgram.createSocket(
+      isNode10 ? &#x27;udp4&#x27; : { type: &#x27;udp4&#x27;, reuseAddr: true }
+    )
+    self.udp4.on(&#x27;message&#x27;, function (msg, rinfo) { self.onUdpRequest(msg, rinfo) })
+    self.udp4.on(&#x27;error&#x27;, function (err) { self._onError(err) })
+    self.udp4.on(&#x27;listening&#x27;, onListening)
+
+    self.udp6 = dgram.createSocket(
+      isNode10 ? &#x27;udp6&#x27; : { type: &#x27;udp6&#x27;, reuseAddr: true }
+    )
+    self.udp6.on(&#x27;message&#x27;, function (msg, rinfo) { self.onUdpRequest(msg, rinfo) })
+    self.udp6.on(&#x27;error&#x27;, function (err) { self._onError(err) })
+    self.udp6.on(&#x27;listening&#x27;, onListening)
+  }
+
+  // start a websocket tracker (for WebTorrent) unless the user explicitly says no
+  if (opts.ws !== false) {
+    if (!self.http) {
+      self.http = http.createServer()
+      self.http.on(&#x27;error&#x27;, function (err) { self._onError(err) })
+      self.http.on(&#x27;listening&#x27;, onListening)
+
+      // Add default http request handler on next tick to give user the chance to add
+      // their own handler first. Handle requests untouched by user&#x27;s handler.
+      process.nextTick(function () {
+        self.http.on(&#x27;request&#x27;, function (req, res) {
+          if (res.headersSent) return
+          // For websocket trackers, we only need to handle the UPGRADE http method.
+          // Return 404 for all other request types.
+          res.statusCode = 404
+          res.end(&#x27;404 Not Found&#x27;)
+        })
+      })
+    }
+    self.ws = new WebSocketServer({
+      server: self.http,
+      perMessageDeflate: false,
+      clientTracking: false
+    })
+    self.ws.address = function () {
+      return self.http.address()
+    }
+    self.ws.on(&#x27;error&#x27;, function (err) { self._onError(err) })
+    self.ws.on(&#x27;connection&#x27;, function (socket) { self.onWebSocketConnection(socket) })
+  }
+
+  if (opts.stats !== false) {
+    if (!self.http) {
+      self.http = http.createServer()
+      self.http.on(&#x27;error&#x27;, function (err) { self._onError(err) })
+      self.http.on(&#x27;listening&#x27;, onListening)
+    }
+
+    // Http handler for &#x27;/stats&#x27; route
+    self.http.on(&#x27;request&#x27;, function (req, res) {
+      if (res.headersSent) return
+
+      var infoHashes = Object.keys(self.torrents)
+      var activeTorrents = 0
+      var allPeers = {}
+
+      function countPeers (filterFunction) {
+        var count = 0
+        var key
+
+        for (key in allPeers) {
+          if (allPeers.hasOwnProperty(key) &#x26;&#x26; filterFunction(allPeers[key])) {
+            count++
+          }
+        }
+
+        return count
+      }
+
+      function groupByClient () {
+        var clients = {}
+        for (var key in allPeers) {
+          if (allPeers.hasOwnProperty(key)) {
+            var peer = allPeers[key]
+
+            if (!clients[peer.client.client]) {
+              cli ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Client.scrape" id="apidoc.element.bittorrent-tracker.Client.scrape">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Client.</span>scrape
+        <span class="apidocSignatureSpan">(opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">scrape = function (opts, cb) {
+  cb = once(cb)
+
+  if (!opts.infoHash) throw new Error(&#x27;Option `infoHash` is required&#x27;)
+  if (!opts.announce) throw new Error(&#x27;Option `announce` is required&#x27;)
+
+  var clientOpts = extend(opts, {
+    infoHash: Array.isArray(opts.infoHash) ? opts.infoHash[0] : opts.infoHash,
+    peerId: Buffer.from(&#x27;01234567890123456789&#x27;), // dummy value
+    port: 6881 // dummy value
+  })
+
+  var client = new Client(clientOpts)
+  client.once(&#x27;error&#x27;, cb)
+  client.once(&#x27;warning&#x27;, cb)
+
+  var len = Array.isArray(opts.infoHash) ? opts.infoHash.length : 1
+  var results = {}
+  client.on(&#x27;scrape&#x27;, function (data) {
+    len -= 1
+    results[data.infoHash] = data
+    if (len === 0) {
+      client.destroy()
+      var keys = Object.keys(results)
+      if (keys.length === 1) {
+        cb(null, results[keys[0]])
+      } else {
+        cb(null, results)
+      }
+    }
+  })
+
+  opts.infoHash = Array.isArray(opts.infoHash)
+    ? opts.infoHash.map(function (infoHash) {
+      return Buffer.from(infoHash, &#x27;hex&#x27;)
+    })
+    : Buffer.from(opts.infoHash, &#x27;hex&#x27;)
+  client.scrape({ infoHash: opts.infoHash })
+  return client
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// stop getting peers from the tracker, gracefully leave the swarm
+client.stop()
+
+// ungracefully leave the swarm (without sending final &#x27;stop&#x27; message)
+client.destroy()
+
+// scrape
+client.<span class="apidocCodeKeywordSpan">scrape</span>()
+
+client.on(&#x27;scrape&#x27;, function (data) {
+  console.log(&#x27;got a scrape response from tracker: &#x27; + data.announce)
+  console.log(&#x27;number of seeders in the swarm: &#x27; + data.complete)
+  console.log(&#x27;number of leechers in the swarm: &#x27; + data.incomplete)
+  console.log(&#x27;number of total downloads of this torrent: &#x27; + data.downloaded)
+})
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Client.super_" id="apidoc.element.bittorrent-tracker.Client.super_">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Client.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.bittorrent-tracker.Client.prototype" id="apidoc.module.bittorrent-tracker.Client.prototype">module bittorrent-tracker.Client.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Client.prototype._announce" id="apidoc.element.bittorrent-tracker.Client.prototype._announce">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Client.prototype.</span>_announce
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_announce = function (opts) {
+  var self = this
+  self._trackers.forEach(function (tracker) {
+    // tracker should not modify `opts` object, it&#x27;s passed to all trackers
+    tracker.announce(opts)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Client.prototype._defaultAnnounceOpts" id="apidoc.element.bittorrent-tracker.Client.prototype._defaultAnnounceOpts">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Client.prototype.</span>_defaultAnnounceOpts
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_defaultAnnounceOpts = function (opts) {
+  var self = this
+  if (!opts) opts = {}
+
+  if (opts.numwant == null) opts.numwant = common.DEFAULT_ANNOUNCE_PEERS
+
+  if (opts.uploaded == null) opts.uploaded = 0
+  if (opts.downloaded == null) opts.downloaded = 0
+
+  if (self._getAnnounceOpts) opts = extend(opts, self._getAnnounceOpts())
+  return opts
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var self = this
+  if (intervalMs == null) intervalMs = self.DEFAULT_ANNOUNCE_INTERVAL
+
+  clearInterval(self.interval)
+
+  if (intervalMs) {
+    self.interval = setInterval(function () {
+      self.announce(self.client.<span class="apidocCodeKeywordSpan">_defaultAnnounceOpts</span>())
+    }, intervalMs)
+    if (self.interval.unref) self.interval.unref()
+  }
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Client.prototype.complete" id="apidoc.element.bittorrent-tracker.Client.prototype.complete">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Client.prototype.</span>complete
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">complete = function (opts) {
+  var self = this
+  debug(&#x27;send `complete`&#x27;)
+  if (!opts) opts = {}
+  opts = self._defaultAnnounceOpts(opts)
+  opts.event = &#x27;completed&#x27;
+  self._announce(opts)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+})
+
+client.once(&#x27;peer&#x27;, function (addr) {
+console.log(&#x27;found a peer: &#x27; + addr) // 85.10.239.191:48623
+})
+
+// announce that download has completed (and you are now a seeder)
+client.<span class="apidocCodeKeywordSpan">complete</span>()
+
+// force a tracker announce. will trigger more &#x27;update&#x27; events and maybe more &#x27;peer&#x27; events
+client.update()
+
+// provide parameters to the tracker
+client.update({
+uploaded: 0,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Client.prototype.destroy" id="apidoc.element.bittorrent-tracker.Client.prototype.destroy">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Client.prototype.</span>destroy
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">destroy = function (cb) {
+  var self = this
+  if (self.destroyed) return
+  self.destroyed = true
+  debug(&#x27;destroy&#x27;)
+
+  var tasks = self._trackers.map(function (tracker) {
+    return function (cb) {
+      tracker.destroy(cb)
+    }
+  })
+
+  parallel(tasks, cb)
+
+  self._trackers = []
+  self._getAnnounceOpts = null
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+customParam: &#x27;blah&#x27; // custom parameters supported
+})
+
+// stop getting peers from the tracker, gracefully leave the swarm
+client.stop()
+
+// ungracefully leave the swarm (without sending final &#x27;stop&#x27; message)
+client.<span class="apidocCodeKeywordSpan">destroy</span>()
+
+// scrape
+client.scrape()
+
+client.on(&#x27;scrape&#x27;, function (data) {
+console.log(&#x27;got a scrape response from tracker: &#x27; + data.announce)
+console.log(&#x27;number of seeders in the swarm: &#x27; + data.complete)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Client.prototype.scrape" id="apidoc.element.bittorrent-tracker.Client.prototype.scrape">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Client.prototype.</span>scrape
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">scrape = function (opts) {
+  var self = this
+  debug(&#x27;send `scrape`&#x27;)
+  if (!opts) opts = {}
+  self._trackers.forEach(function (tracker) {
+    // tracker should not modify `opts` object, it&#x27;s passed to all trackers
+    tracker.scrape(opts)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// stop getting peers from the tracker, gracefully leave the swarm
+client.stop()
+
+// ungracefully leave the swarm (without sending final &#x27;stop&#x27; message)
+client.destroy()
+
+// scrape
+client.<span class="apidocCodeKeywordSpan">scrape</span>()
+
+client.on(&#x27;scrape&#x27;, function (data) {
+  console.log(&#x27;got a scrape response from tracker: &#x27; + data.announce)
+  console.log(&#x27;number of seeders in the swarm: &#x27; + data.complete)
+  console.log(&#x27;number of leechers in the swarm: &#x27; + data.incomplete)
+  console.log(&#x27;number of total downloads of this torrent: &#x27; + data.downloaded)
+})
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Client.prototype.setInterval" id="apidoc.element.bittorrent-tracker.Client.prototype.setInterval">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Client.prototype.</span>setInterval
+        <span class="apidocSignatureSpan">(intervalMs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setInterval = function (intervalMs) {
+  var self = this
+  debug(&#x27;setInterval %d&#x27;, intervalMs)
+  self._trackers.forEach(function (tracker) {
+    tracker.setInterval(intervalMs)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+}
+
+HTTPTracker.prototype._onAnnounceResponse = function (data) {
+var self = this
+
+var interval = data.interval || data[&#x27;min interval&#x27;]
+if (interval) self.<span class="apidocCodeKeywordSpan">setInterval</span>(interval * 1000)
+
+var trackerId = data[&#x27;tracker id&#x27;]
+if (trackerId) {
+  // If absent, do not discard previous trackerId value
+  self._trackerId = trackerId
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Client.prototype.start" id="apidoc.element.bittorrent-tracker.Client.prototype.start">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Client.prototype.</span>start
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">start = function (opts) {
+  var self = this
+  debug(&#x27;send `start`&#x27;)
+  opts = self._defaultAnnounceOpts(opts)
+  opts.event = &#x27;started&#x27;
+  self._announce(opts)
+
+  // start announcing on intervals
+  self._trackers.forEach(function (tracker) {
+    tracker.setInterval()
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+client.on(&#x27;warning&#x27;, function (err) {
+  // a tracker was unavailable or sent bad data to the client. you can probably ignore it
+  console.log(err.message)
+})
+
+// start getting peers from the tracker
+client.<span class="apidocCodeKeywordSpan">start</span>()
+
+client.on(&#x27;update&#x27;, function (data) {
+  console.log(&#x27;got an announce response from tracker: &#x27; + data.announce)
+  console.log(&#x27;number of seeders in the swarm: &#x27; + data.complete)
+  console.log(&#x27;number of leechers in the swarm: &#x27; + data.incomplete)
+})
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Client.prototype.stop" id="apidoc.element.bittorrent-tracker.Client.prototype.stop">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Client.prototype.</span>stop
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stop = function (opts) {
+  var self = this
+  debug(&#x27;send `stop`&#x27;)
+  opts = self._defaultAnnounceOpts(opts)
+  opts.event = &#x27;stopped&#x27;
+  self._announce(opts)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  uploaded: 0,
+  downloaded: 0,
+  left: 0,
+  customParam: &#x27;blah&#x27; // custom parameters supported
+})
+
+// stop getting peers from the tracker, gracefully leave the swarm
+client.<span class="apidocCodeKeywordSpan">stop</span>()
+
+// ungracefully leave the swarm (without sending final &#x27;stop&#x27; message)
+client.destroy()
+
+// scrape
+client.scrape()
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Client.prototype.update" id="apidoc.element.bittorrent-tracker.Client.prototype.update">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Client.prototype.</span>update
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">update = function (opts) {
+  var self = this
+  debug(&#x27;send `update`&#x27;)
+  opts = self._defaultAnnounceOpts(opts)
+  if (opts.event) delete opts.event
+  self._announce(opts)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+console.log(&#x27;found a peer: &#x27; + addr) // 85.10.239.191:48623
+})
+
+// announce that download has completed (and you are now a seeder)
+client.complete()
+
+// force a tracker announce. will trigger more &#x27;update&#x27; events and maybe more &#x27;peer&#x27; events
+client.<span class="apidocCodeKeywordSpan">update</span>()
+
+// provide parameters to the tracker
+client.update({
+uploaded: 0,
+downloaded: 0,
+left: 0,
+customParam: &#x27;blah&#x27; // custom parameters supported
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.bittorrent-tracker.Server" id="apidoc.module.bittorrent-tracker.Server">module bittorrent-tracker.Server</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.Server" id="apidoc.element.bittorrent-tracker.Server.Server">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.</span>Server
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Server(opts) {
+  var self = this
+  if (!(self instanceof Server)) return new Server(opts)
+  EventEmitter.call(self)
+  if (!opts) opts = {}
+
+  debug(&#x27;new server %s&#x27;, JSON.stringify(opts))
+
+  self.intervalMs = opts.interval
+    ? opts.interval
+    : 10 * 60 * 1000 // 10 min
+
+  self._trustProxy = !!opts.trustProxy
+  if (typeof opts.filter === &#x27;function&#x27;) self._filter = opts.filter
+
+  self.peersCacheLength = opts.peersCacheLength
+  self.peersCacheTtl = opts.peersCacheTtl
+
+  self._listenCalled = false
+  self.listening = false
+  self.destroyed = false
+  self.torrents = {}
+
+  self.http = null
+  self.udp4 = null
+  self.udp6 = null
+  self.ws = null
+
+  // start an http tracker unless the user explictly says no
+  if (opts.http !== false) {
+    self.http = http.createServer()
+    self.http.on(&#x27;error&#x27;, function (err) { self._onError(err) })
+    self.http.on(&#x27;listening&#x27;, onListening)
+
+    // Add default http request handler on next tick to give user the chance to add
+    // their own handler first. Handle requests untouched by user&#x27;s handler.
+    process.nextTick(function () {
+      self.http.on(&#x27;request&#x27;, function (req, res) {
+        if (res.headersSent) return
+        self.onHttpRequest(req, res)
+      })
+    })
+  }
+
+  // start a udp tracker unless the user explicitly says no
+  if (opts.udp !== false) {
+    var isNode10 = /^v0.10./.test(process.version)
+
+    self.udp4 = self.udp = dgram.createSocket(
+      isNode10 ? &#x27;udp4&#x27; : { type: &#x27;udp4&#x27;, reuseAddr: true }
+    )
+    self.udp4.on(&#x27;message&#x27;, function (msg, rinfo) { self.onUdpRequest(msg, rinfo) })
+    self.udp4.on(&#x27;error&#x27;, function (err) { self._onError(err) })
+    self.udp4.on(&#x27;listening&#x27;, onListening)
+
+    self.udp6 = dgram.createSocket(
+      isNode10 ? &#x27;udp6&#x27; : { type: &#x27;udp6&#x27;, reuseAddr: true }
+    )
+    self.udp6.on(&#x27;message&#x27;, function (msg, rinfo) { self.onUdpRequest(msg, rinfo) })
+    self.udp6.on(&#x27;error&#x27;, function (err) { self._onError(err) })
+    self.udp6.on(&#x27;listening&#x27;, onListening)
+  }
+
+  // start a websocket tracker (for WebTorrent) unless the user explicitly says no
+  if (opts.ws !== false) {
+    if (!self.http) {
+      self.http = http.createServer()
+      self.http.on(&#x27;error&#x27;, function (err) { self._onError(err) })
+      self.http.on(&#x27;listening&#x27;, onListening)
+
+      // Add default http request handler on next tick to give user the chance to add
+      // their own handler first. Handle requests untouched by user&#x27;s handler.
+      process.nextTick(function () {
+        self.http.on(&#x27;request&#x27;, function (req, res) {
+          if (res.headersSent) return
+          // For websocket trackers, we only need to handle the UPGRADE http method.
+          // Return 404 for all other request types.
+          res.statusCode = 404
+          res.end(&#x27;404 Not Found&#x27;)
+        })
+      })
+    }
+    self.ws = new WebSocketServer({
+      server: self.http,
+      perMessageDeflate: false,
+      clientTracking: false
+    })
+    self.ws.address = function () {
+      return self.http.address()
+    }
+    self.ws.on(&#x27;error&#x27;, function (err) { self._onError(err) })
+    self.ws.on(&#x27;connection&#x27;, function (socket) { self.onWebSocketConnection(socket) })
+  }
+
+  if (opts.stats !== false) {
+    if (!self.http) {
+      self.http = http.createServer()
+      self.http.on(&#x27;error&#x27;, function (err) { self._onError(err) })
+      self.http.on(&#x27;listening&#x27;, onListening)
+    }
+
+    // Http handler for &#x27;/stats&#x27; route
+    self.http.on(&#x27;request&#x27;, function (req, res) {
+      if (res.headersSent) return
+
+      var infoHashes = Object.keys(self.torrents)
+      var activeTorrents = 0
+      var allPeers = {}
+
+      function countPeers (filterFunction) {
+        var count = 0
+        var key
+
+        for (key in allPeers) {
+          if (allPeers.hasOwnProperty(key) &#x26;&#x26; filterFunction(allPeers[key])) {
+            count++
+          }
+        }
+
+        return count
+      }
+
+      function groupByClient () {
+        var clients = {}
+        for (var key in allPeers) {
+          if (allPeers.hasOwnProperty(key)) {
+            var peer = allPeers[key]
+
+            if (!clients[peer.client.client]) {
+              cli ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.Swarm" id="apidoc.element.bittorrent-tracker.Server.Swarm">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.</span>Swarm
+        <span class="apidocSignatureSpan">(infoHash, server)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Swarm(infoHash, server) {
+  var self = this
+  self.infoHash = infoHash
+  self.complete = 0
+  self.incomplete = 0
+
+  self.peers = new LRU({
+    max: server.peersCacheLength || 1000,
+    maxAge: server.peersCacheTtl || 20 * 60 * 1000 // 20 minutes
+  })
+
+  // When a peer is evicted from the LRU store, send a synthetic &#x27;stopped&#x27; event
+  // so the stats get updated correctly.
+  self.peers.on(&#x27;evict&#x27;, function (data) {
+    var peer = data.value
+    var params = {
+      type: peer.type,
+      event: &#x27;stopped&#x27;,
+      numwant: 0,
+      peer_id: peer.peerId
+    }
+    self._onAnnounceStopped(params, peer, peer.peerId)
+    peer.socket = null
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.super_" id="apidoc.element.bittorrent-tracker.Server.super_">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.bittorrent-tracker.Server.Swarm" id="apidoc.module.bittorrent-tracker.Server.Swarm">module bittorrent-tracker.Server.Swarm</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.Swarm.Swarm" id="apidoc.element.bittorrent-tracker.Server.Swarm.Swarm">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.</span>Swarm
+        <span class="apidocSignatureSpan">(infoHash, server)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Swarm(infoHash, server) {
+  var self = this
+  self.infoHash = infoHash
+  self.complete = 0
+  self.incomplete = 0
+
+  self.peers = new LRU({
+    max: server.peersCacheLength || 1000,
+    maxAge: server.peersCacheTtl || 20 * 60 * 1000 // 20 minutes
+  })
+
+  // When a peer is evicted from the LRU store, send a synthetic &#x27;stopped&#x27; event
+  // so the stats get updated correctly.
+  self.peers.on(&#x27;evict&#x27;, function (data) {
+    var peer = data.value
+    var params = {
+      type: peer.type,
+      event: &#x27;stopped&#x27;,
+      numwant: 0,
+      peer_id: peer.peerId
+    }
+    self._onAnnounceStopped(params, peer, peer.peerId)
+    peer.socket = null
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.bittorrent-tracker.Server.Swarm.prototype" id="apidoc.module.bittorrent-tracker.Server.Swarm.prototype">module bittorrent-tracker.Server.Swarm.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.Swarm.prototype._getPeers" id="apidoc.element.bittorrent-tracker.Server.Swarm.prototype._getPeers">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.Swarm.prototype.</span>_getPeers
+        <span class="apidocSignatureSpan">(numwant, ownPeerId, isWebRTC)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_getPeers = function (numwant, ownPeerId, isWebRTC) {
+  var peers = []
+  var ite = randomIterate(this.peers.keys)
+  var peerId
+  while ((peerId = ite()) &#x26;&#x26; peers.length &#x3c; numwant) {
+    // Don&#x27;t mark the peer as most recently used on announce
+    var peer = this.peers.peek(peerId)
+    if (!peer) continue
+    if (isWebRTC &#x26;&#x26; peer.peerId === ownPeerId) continue // don&#x27;t send peer to itself
+    if ((isWebRTC &#x26;&#x26; peer.type !== &#x27;ws&#x27;) || (!isWebRTC &#x26;&#x26; peer.type === &#x27;ws&#x27;)) continue // send proper peer type
+    peers.push(peer)
+  }
+  return peers
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.Swarm.prototype._onAnnounceCompleted" id="apidoc.element.bittorrent-tracker.Server.Swarm.prototype._onAnnounceCompleted">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.Swarm.prototype.</span>_onAnnounceCompleted
+        <span class="apidocSignatureSpan">(params, peer, id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_onAnnounceCompleted = function (params, peer, id) {
+  if (!peer) {
+    debug(&#x27;unexpected `completed` event from peer that is not in swarm&#x27;)
+    return this._onAnnounceStarted(params, peer, id) // treat as a start
+  }
+  if (peer.complete) {
+    debug(&#x27;unexpected `completed` event from peer that is already completed&#x27;)
+    return this._onAnnounceUpdate(params, peer, id) // treat as an update
+  }
+
+  this.complete += 1
+  this.incomplete -= 1
+  peer.complete = true
+  this.peers.set(id, peer)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.Swarm.prototype._onAnnounceStarted" id="apidoc.element.bittorrent-tracker.Server.Swarm.prototype._onAnnounceStarted">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.Swarm.prototype.</span>_onAnnounceStarted
+        <span class="apidocSignatureSpan">(params, peer, id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_onAnnounceStarted = function (params, peer, id) {
+  if (peer) {
+    debug(&#x27;unexpected `started` event from peer that is already in swarm&#x27;)
+    return this._onAnnounceUpdate(params, peer, id) // treat as an update
+  }
+
+  if (params.left === 0) this.complete += 1
+  else this.incomplete += 1
+  peer = this.peers.set(id, {
+    type: params.type,
+    complete: params.left === 0,
+    peerId: params.peer_id, // as hex
+    ip: params.ip,
+    port: params.port,
+    socket: params.socket // only websocket
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.Swarm.prototype._onAnnounceStopped" id="apidoc.element.bittorrent-tracker.Server.Swarm.prototype._onAnnounceStopped">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.Swarm.prototype.</span>_onAnnounceStopped
+        <span class="apidocSignatureSpan">(params, peer, id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_onAnnounceStopped = function (params, peer, id) {
+  if (!peer) {
+    debug(&#x27;unexpected `stopped` event from peer that is not in swarm&#x27;)
+    return // do nothing
+  }
+
+  if (peer.complete) this.complete -= 1
+  else this.incomplete -= 1
+
+  // If it&#x27;s a websocket, remove this swarm&#x27;s infohash from the list of active
+  // swarms that this peer is participating in.
+  if (peer.socket &#x26;&#x26; !peer.socket.destroyed) {
+    var index = peer.socket.infoHashes.indexOf(this.infoHash)
+    arrayRemove(peer.socket.infoHashes, index)
+  }
+
+  this.peers.remove(id)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.Swarm.prototype._onAnnounceUpdate" id="apidoc.element.bittorrent-tracker.Server.Swarm.prototype._onAnnounceUpdate">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.Swarm.prototype.</span>_onAnnounceUpdate
+        <span class="apidocSignatureSpan">(params, peer, id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_onAnnounceUpdate = function (params, peer, id) {
+  if (!peer) {
+    debug(&#x27;unexpected `update` event from peer that is not in swarm&#x27;)
+    return this._onAnnounceStarted(params, peer, id) // treat as a start
+  }
+
+  if (!peer.complete &#x26;&#x26; params.left === 0) {
+    this.complete += 1
+    this.incomplete -= 1
+    peer.complete = true
+  }
+  this.peers.set(id, peer)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.Swarm.prototype.announce" id="apidoc.element.bittorrent-tracker.Server.Swarm.prototype.announce">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.Swarm.prototype.</span>announce
+        <span class="apidocSignatureSpan">(params, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">announce = function (params, cb) {
+  var self = this
+  var id = params.type === &#x27;ws&#x27; ? params.peer_id : params.addr
+  // Mark the source peer as recently used in cache
+  var peer = self.peers.get(id)
+
+  if (params.event === &#x27;started&#x27;) {
+    self._onAnnounceStarted(params, peer, id)
+  } else if (params.event === &#x27;stopped&#x27;) {
+    self._onAnnounceStopped(params, peer, id)
+  } else if (params.event === &#x27;completed&#x27;) {
+    self._onAnnounceCompleted(params, peer, id)
+  } else if (params.event === &#x27;update&#x27;) {
+    self._onAnnounceUpdate(params, peer, id)
+  } else {
+    cb(new Error(&#x27;invalid event&#x27;))
+    return
+  }
+  cb(null, {
+    complete: self.complete,
+    incomplete: self.incomplete,
+    peers: self._getPeers(params.numwant, params.peer_id, !!params.socket)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var self = this
+  if (intervalMs == null) intervalMs = self.DEFAULT_ANNOUNCE_INTERVAL
+
+  clearInterval(self.interval)
+
+  if (intervalMs) {
+    self.interval = setInterval(function () {
+      self.<span class="apidocCodeKeywordSpan">announce</span>(self.client._defaultAnnounceOpts())
+    }, intervalMs)
+    if (self.interval.unref) self.interval.unref()
+  }
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.Swarm.prototype.scrape" id="apidoc.element.bittorrent-tracker.Server.Swarm.prototype.scrape">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.Swarm.prototype.</span>scrape
+        <span class="apidocSignatureSpan">(params, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">scrape = function (params, cb) {
+  cb(null, {
+    complete: this.complete,
+    incomplete: this.incomplete
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// stop getting peers from the tracker, gracefully leave the swarm
+client.stop()
+
+// ungracefully leave the swarm (without sending final &#x27;stop&#x27; message)
+client.destroy()
+
+// scrape
+client.<span class="apidocCodeKeywordSpan">scrape</span>()
+
+client.on(&#x27;scrape&#x27;, function (data) {
+  console.log(&#x27;got a scrape response from tracker: &#x27; + data.announce)
+  console.log(&#x27;number of seeders in the swarm: &#x27; + data.complete)
+  console.log(&#x27;number of leechers in the swarm: &#x27; + data.incomplete)
+  console.log(&#x27;number of total downloads of this torrent: &#x27; + data.downloaded)
+})
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.bittorrent-tracker.Server.prototype" id="apidoc.module.bittorrent-tracker.Server.prototype">module bittorrent-tracker.Server.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.prototype._onAnnounce" id="apidoc.element.bittorrent-tracker.Server.prototype._onAnnounce">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>_onAnnounce
+        <span class="apidocSignatureSpan">(params, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_onAnnounce = function (params, cb) {
+  var self = this
+
+  self.getSwarm(params.info_hash, function (err, swarm) {
+    if (err) return cb(err)
+    if (swarm) {
+      announce(swarm)
+    } else {
+      createSwarm()
+    }
+  })
+
+  function createSwarm () {
+    if (self._filter) {
+      self._filter(params.info_hash, params, function (err) {
+        // Precense of err means that this info_hash is disallowed
+        if (err) {
+          cb(err)
+        } else {
+          self.createSwarm(params.info_hash, function (err, swarm) {
+            if (err) return cb(err)
+            announce(swarm)
+          })
+        }
+      })
+    } else {
+      self.createSwarm(params.info_hash, function (err, swarm) {
+        if (err) return cb(err)
+        announce(swarm)
+      })
+    }
+  }
+
+  function announce (swarm) {
+    if (!params.event || params.event === &#x27;empty&#x27;) params.event = &#x27;update&#x27;
+    swarm.announce(params, function (err, response) {
+      if (err) return cb(err)
+
+      if (!response.action) response.action = common.ACTIONS.ANNOUNCE
+      if (!response.interval) response.interval = Math.ceil(self.intervalMs / 1000)
+
+      if (params.compact === 1) {
+        var peers = response.peers
+
+        // Find IPv4 peers
+        response.peers = string2compact(peers.filter(function (peer) {
+          return common.IPV4_RE.test(peer.ip)
+        }).map(function (peer) {
+          return peer.ip + &#x27;:&#x27; + peer.port
+        }))
+        // Find IPv6 peers
+        response.peers6 = string2compact(peers.filter(function (peer) {
+          return common.IPV6_RE.test(peer.ip)
+        }).map(function (peer) {
+          return &#x27;[&#x27; + peer.ip + &#x27;]:&#x27; + peer.port
+        }))
+      } else if (params.compact === 0) {
+        // IPv6 peers are not separate for non-compact responses
+        response.peers = response.peers.map(function (peer) {
+          return {
+            &#x27;peer id&#x27;: common.hexToBinary(peer.peerId),
+            ip: peer.ip,
+            port: peer.port
+          }
+        })
+      } // else, return full peer objects (used for websocket responses)
+
+      cb(null, response)
+    })
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.prototype._onError" id="apidoc.element.bittorrent-tracker.Server.prototype._onError">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>_onError
+        <span class="apidocSignatureSpan">(err)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_onError = function (err) {
+  var self = this
+  self.emit(&#x27;error&#x27;, err)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.prototype._onRequest" id="apidoc.element.bittorrent-tracker.Server.prototype._onRequest">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>_onRequest
+        <span class="apidocSignatureSpan">(params, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_onRequest = function (params, cb) {
+  var self = this
+  if (params &#x26;&#x26; params.action === common.ACTIONS.CONNECT) {
+    cb(null, { action: common.ACTIONS.CONNECT })
+  } else if (params &#x26;&#x26; params.action === common.ACTIONS.ANNOUNCE) {
+    self._onAnnounce(params, cb)
+  } else if (params &#x26;&#x26; params.action === common.ACTIONS.SCRAPE) {
+    self._onScrape(params, cb)
+  } else {
+    cb(new Error(&#x27;Invalid action&#x27;))
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.prototype._onScrape" id="apidoc.element.bittorrent-tracker.Server.prototype._onScrape">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>_onScrape
+        <span class="apidocSignatureSpan">(params, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_onScrape = function (params, cb) {
+  var self = this
+
+  if (params.info_hash == null) {
+    // if info_hash param is omitted, stats for all torrents are returned
+    // TODO: make this configurable!
+    params.info_hash = Object.keys(self.torrents)
+  }
+
+  series(params.info_hash.map(function (infoHash) {
+    return function (cb) {
+      self.getSwarm(infoHash, function (err, swarm) {
+        if (err) return cb(err)
+        if (swarm) {
+          swarm.scrape(params, function (err, scrapeInfo) {
+            if (err) return cb(err)
+            cb(null, {
+              infoHash: infoHash,
+              complete: (scrapeInfo &#x26;&#x26; scrapeInfo.complete) || 0,
+              incomplete: (scrapeInfo &#x26;&#x26; scrapeInfo.incomplete) || 0
+            })
+          })
+        } else {
+          cb(null, { infoHash: infoHash, complete: 0, incomplete: 0 })
+        }
+      })
+    }
+  }), function (err, results) {
+    if (err) return cb(err)
+
+    var response = {
+      action: common.ACTIONS.SCRAPE,
+      files: {},
+      flags: { min_request_interval: Math.ceil(self.intervalMs / 1000) }
+    }
+
+    results.forEach(function (result) {
+      response.files[common.hexToBinary(result.infoHash)] = {
+        complete: result.complete || 0,
+        incomplete: result.incomplete || 0,
+        downloaded: result.complete || 0 // TODO: this only provides a lower-bound
+      }
+    })
+
+    cb(null, response)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.prototype._onWebSocketClose" id="apidoc.element.bittorrent-tracker.Server.prototype._onWebSocketClose">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>_onWebSocketClose
+        <span class="apidocSignatureSpan">(socket)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_onWebSocketClose = function (socket) {
+  var self = this
+  debug(&#x27;websocket close %s&#x27;, socket.peerId)
+  socket.destroyed = true
+
+  if (socket.peerId) {
+    socket.infoHashes.slice(0).forEach(function (infoHash) {
+      var swarm = self.torrents[infoHash]
+      if (swarm) {
+        swarm.announce({
+          type: &#x27;ws&#x27;,
+          event: &#x27;stopped&#x27;,
+          numwant: 0,
+          peer_id: socket.peerId
+        }, noop)
+      }
+    })
+  }
+
+  // ignore all future errors
+  socket.onSend = noop
+  socket.on(&#x27;error&#x27;, noop)
+
+  socket.peerId = null
+  socket.infoHashes = null
+
+  if (typeof socket.onMessageBound === &#x27;function&#x27;) {
+    socket.removeListener(&#x27;message&#x27;, socket.onMessageBound)
+  }
+  socket.onMessageBound = null
+
+  if (typeof socket.onErrorBound === &#x27;function&#x27;) {
+    socket.removeListener(&#x27;error&#x27;, socket.onErrorBound)
+  }
+  socket.onErrorBound = null
+
+  if (typeof socket.onCloseBound === &#x27;function&#x27;) {
+    socket.removeListener(&#x27;close&#x27;, socket.onCloseBound)
+  }
+  socket.onCloseBound = null
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.prototype._onWebSocketError" id="apidoc.element.bittorrent-tracker.Server.prototype._onWebSocketError">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>_onWebSocketError
+        <span class="apidocSignatureSpan">(socket, err)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_onWebSocketError = function (socket, err) {
+  var self = this
+  debug(&#x27;websocket error %s&#x27;, err.message || err)
+  self.emit(&#x27;warning&#x27;, err)
+  self._onWebSocketClose(socket)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.prototype._onWebSocketRequest" id="apidoc.element.bittorrent-tracker.Server.prototype._onWebSocketRequest">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>_onWebSocketRequest
+        <span class="apidocSignatureSpan">(socket, opts, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_onWebSocketRequest = function (socket, opts, params) {
+  var self = this
+
+  try {
+    params = parseWebSocketRequest(socket, opts, params)
+  } catch (err) {
+    socket.send(JSON.stringify({
+      &#x27;failure reason&#x27;: err.message
+    }), socket.onSend)
+
+    // even though it&#x27;s an error for the client, it&#x27;s just a warning for the server.
+    // don&#x27;t crash the server because a client sent bad data :)
+    self.emit(&#x27;warning&#x27;, err)
+    return
+  }
+
+  if (!socket.peerId) socket.peerId = params.peer_id // as hex
+
+  self._onRequest(params, function (err, response) {
+    if (self.destroyed || socket.destroyed) return
+    if (err) {
+      socket.send(JSON.stringify({
+        action: params.action === common.ACTIONS.ANNOUNCE ? &#x27;announce&#x27; : &#x27;scrape&#x27;,
+        &#x27;failure reason&#x27;: err.message,
+        info_hash: common.hexToBinary(params.info_hash)
+      }), socket.onSend)
+
+      self.emit(&#x27;warning&#x27;, err)
+      return
+    }
+
+    response.action = params.action === common.ACTIONS.ANNOUNCE ? &#x27;announce&#x27; : &#x27;scrape&#x27;
+
+    var peers
+    if (response.action === &#x27;announce&#x27;) {
+      peers = response.peers
+      delete response.peers
+
+      if (socket.infoHashes.indexOf(params.info_hash) === -1) {
+        socket.infoHashes.push(params.info_hash)
+      }
+
+      response.info_hash = common.hexToBinary(params.info_hash)
+
+      // WebSocket tracker should have a shorter interval – default: 2 minutes
+      response.interval = Math.ceil(self.intervalMs / 1000 / 5)
+    }
+
+    // Skip sending update back for &#x27;answer&#x27; announce messages – not needed
+    if (!params.answer) {
+      socket.send(JSON.stringify(response), socket.onSend)
+      debug(&#x27;sent response %s to %s&#x27;, JSON.stringify(response), params.peer_id)
+    }
+
+    if (Array.isArray(params.offers)) {
+      debug(&#x27;got %s offers from %s&#x27;, params.offers.length, params.peer_id)
+      debug(&#x27;got %s peers from swarm %s&#x27;, peers.length, params.info_hash)
+      peers.forEach(function (peer, i) {
+        peer.socket.send(JSON.stringify({
+          action: &#x27;announce&#x27;,
+          offer: params.offers[i].offer,
+          offer_id: params.offers[i].offer_id,
+          peer_id: common.hexToBinary(params.peer_id),
+          info_hash: common.hexToBinary(params.info_hash)
+        }), peer.socket.onSend)
+        debug(&#x27;sent offer to %s from %s&#x27;, peer.peerId, params.peer_id)
+      })
+    }
+
+    if (params.answer) {
+      debug(&#x27;got answer %s from %s&#x27;, JSON.stringify(params.answer), params.peer_id)
+
+      self.getSwarm(params.info_hash, function (err, swarm) {
+        if (self.destroyed) return
+        if (err) return self.emit(&#x27;warning&#x27;, err)
+        if (!swarm) {
+          return self.emit(&#x27;warning&#x27;, new Error(&#x27;no swarm with that `info_hash`&#x27;))
+        }
+        // Mark the destination peer as recently used in cache
+        var toPeer = swarm.peers.get(params.to_peer_id)
+        if (!toPeer) {
+          return self.emit(&#x27;warning&#x27;, new Error(&#x27;no peer with that `to_peer_id`&#x27;))
+        }
+
+        toPeer.socket.send(JSON.stringify({
+          action: &#x27;announce&#x27;,
+          answer: params.answer,
+          offer_id: params.offer_id,
+          peer_id: common.hexToBinary(params.peer_id),
+          info_hash: common.hexToBinary(params.info_hash)
+        }), toPeer.socket.onSend)
+        debug(&#x27;sent answer to %s from %s&#x27;, toPeer.peerId, params.peer_id)
+
+        done()
+      })
+    } else {
+      done()
+    }
+
+    function done () {
+      // emit event once the announce is fully &#x22;processed&#x22;
+      if (params.action === common.ACTIONS.ANNOUNCE) {
+        self.emit(common.EVENT_NAMES[params.event], params.peer_id, params)
+      }
+    }
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.prototype._onWebSocketSend" id="apidoc.element.bittorrent-tracker.Server.prototype._onWebSocketSend">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>_onWebSocketSend
+        <span class="apidocSignatureSpan">(socket, err)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_onWebSocketSend = function (socket, err) {
+  var self = this
+  if (err) self._onWebSocketError(socket, err)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.prototype.close" id="apidoc.element.bittorrent-tracker.Server.prototype.close">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>close
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">close = function (cb) {
+  var self = this
+  if (!cb) cb = noop
+  debug(&#x27;close&#x27;)
+
+  self.listening = false
+  self.destroyed = true
+
+  if (self.udp4) {
+    try {
+      self.udp4.close()
+    } catch (err) {}
+  }
+
+  if (self.udp6) {
+    try {
+      self.udp6.close()
+    } catch (err) {}
+  }
+
+  if (self.ws) {
+    try {
+      self.ws.close()
+    } catch (err) {}
+  }
+
+  if (self.http) self.http.close(cb)
+  else cb(null)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    timeout = null
+  }
+  if (socket) {
+    arrayRemove(self.cleanupFns, self.cleanupFns.indexOf(cleanup))
+    socket.removeListener(&#x27;error&#x27;, onError)
+    socket.removeListener(&#x27;message&#x27;, onSocketMessage)
+    socket.on(&#x27;error&#x27;, noop) // ignore all future errors
+    try { socket.<span class="apidocCodeKeywordSpan">close</span>() } catch (err) {}
+    socket = null
+  }
+  if (self.maybeDestroyCleanup) self.maybeDestroyCleanup()
+}
+
+function onError (err) {
+  cleanup()
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.prototype.createSwarm" id="apidoc.element.bittorrent-tracker.Server.prototype.createSwarm">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>createSwarm
+        <span class="apidocSignatureSpan">(infoHash, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createSwarm = function (infoHash, cb) {
+  var self = this
+  if (Buffer.isBuffer(infoHash)) infoHash = infoHash.toString(&#x27;hex&#x27;)
+
+  process.nextTick(function () {
+    var swarm = self.torrents[infoHash] = new Server.Swarm(infoHash, self)
+    cb(null, swarm)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.prototype.getSwarm" id="apidoc.element.bittorrent-tracker.Server.prototype.getSwarm">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>getSwarm
+        <span class="apidocSignatureSpan">(infoHash, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getSwarm = function (infoHash, cb) {
+  var self = this
+  if (Buffer.isBuffer(infoHash)) infoHash = infoHash.toString(&#x27;hex&#x27;)
+
+  process.nextTick(function () {
+    cb(null, self.torrents[infoHash])
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.prototype.listen" id="apidoc.element.bittorrent-tracker.Server.prototype.listen">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>listen
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">listen = function () {
+  var self = this
+
+  if (self._listenCalled || self.listening) throw new Error(&#x27;server already listening&#x27;)
+  self._listenCalled = true
+
+  var lastArg = arguments[arguments.length - 1]
+  if (typeof lastArg === &#x27;function&#x27;) self.once(&#x27;listening&#x27;, lastArg)
+
+  var port = toNumber(arguments[0]) || arguments[0] || 0
+  var hostname = typeof arguments[1] !== &#x27;function&#x27; ? arguments[1] : undefined
+
+  debug(&#x27;listen (port: %o hostname: %o)&#x27;, port, hostname)
+
+  function isObject (obj) {
+    return typeof obj === &#x27;object&#x27; &#x26;&#x26; obj !== null
+  }
+
+  var httpPort = isObject(port) ? (port.http || 0) : port
+  var udpPort = isObject(port) ? (port.udp || 0) : port
+
+  // binding to :: only receives IPv4 connections if the bindv6only sysctl is set 0,
+  // which is the default on many operating systems
+  var httpHostname = isObject(hostname) ? hostname.http : hostname
+  var udp4Hostname = isObject(hostname) ? hostname.udp : hostname
+  var udp6Hostname = isObject(hostname) ? hostname.udp6 : hostname
+
+  if (self.http) self.http.listen(httpPort, httpHostname)
+  if (self.udp4) self.udp4.bind(udpPort, udp4Hostname)
+  if (self.udp6) self.udp6.bind(udpPort, udp6Hostname)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+server.on(&#x27;listening&#x27;, function () {
+  // fired when all requested servers are listening
+  console.log(&#x27;listening on http port:&#x27; + server.http.address().port)
+  console.log(&#x27;listening on udp port:&#x27; + server.udp.address().port)
+})
+
+// start tracker server listening! Use 0 to listen on a random free port.
+server.<span class="apidocCodeKeywordSpan">listen</span>(port, hostname, onlistening)
+
+// listen for individual tracker messages from peers:
+
+server.on(&#x27;start&#x27;, function (addr) {
+  console.log(&#x27;got start message from &#x27; + addr)
+})
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.prototype.onHttpRequest" id="apidoc.element.bittorrent-tracker.Server.prototype.onHttpRequest">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>onHttpRequest
+        <span class="apidocSignatureSpan">(req, res, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onHttpRequest = function (req, res, opts) {
+  var self = this
+  if (!opts) opts = {}
+  opts.trustProxy = opts.trustProxy || self._trustProxy
+
+  var params
+  try {
+    params = parseHttpRequest(req, opts)
+    params.httpReq = req
+    params.httpRes = res
+  } catch (err) {
+    res.end(bencode.encode({
+      &#x27;failure reason&#x27;: err.message
+    }))
+
+    // even though it&#x27;s an error for the client, it&#x27;s just a warning for the server.
+    // don&#x27;t crash the server because a client sent bad data :)
+    self.emit(&#x27;warning&#x27;, err)
+    return
+  }
+
+  self._onRequest(params, function (err, response) {
+    if (err) {
+      self.emit(&#x27;warning&#x27;, err)
+      response = {
+        &#x27;failure reason&#x27;: err.message
+      }
+    }
+    if (self.destroyed) return res.end()
+
+    delete response.action  // only needed for UDP encoding
+    res.end(bencode.encode(response))
+
+    if (params.action === common.ACTIONS.ANNOUNCE) {
+      self.emit(common.EVENT_NAMES[params.event], params.addr, params)
+    }
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.prototype.onUdpRequest" id="apidoc.element.bittorrent-tracker.Server.prototype.onUdpRequest">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>onUdpRequest
+        <span class="apidocSignatureSpan">(msg, rinfo)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onUdpRequest = function (msg, rinfo) {
+  var self = this
+
+  var params
+  try {
+    params = parseUdpRequest(msg, rinfo)
+  } catch (err) {
+    self.emit(&#x27;warning&#x27;, err)
+    // Do not reply for parsing errors
+    return
+  }
+
+  self._onRequest(params, function (err, response) {
+    if (err) {
+      self.emit(&#x27;warning&#x27;, err)
+      response = {
+        action: common.ACTIONS.ERROR,
+        &#x27;failure reason&#x27;: err.message
+      }
+    }
+    if (self.destroyed) return
+
+    response.transactionId = params.transactionId
+    response.connectionId = params.connectionId
+
+    var buf = makeUdpPacket(response)
+
+    try {
+      var udp = (rinfo.family === &#x27;IPv4&#x27;) ? self.udp4 : self.udp6
+      udp.send(buf, 0, buf.length, rinfo.port, rinfo.address)
+    } catch (err) {
+      self.emit(&#x27;warning&#x27;, err)
+    }
+
+    if (params.action === common.ACTIONS.ANNOUNCE) {
+      self.emit(common.EVENT_NAMES[params.event], params.addr, params)
+    }
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.Server.prototype.onWebSocketConnection" id="apidoc.element.bittorrent-tracker.Server.prototype.onWebSocketConnection">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.Server.prototype.</span>onWebSocketConnection
+        <span class="apidocSignatureSpan">(socket, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onWebSocketConnection = function (socket, opts) {
+  var self = this
+  if (!opts) opts = {}
+  opts.trustProxy = opts.trustProxy || self._trustProxy
+
+  socket.peerId = null // as hex
+  socket.infoHashes = [] // swarms that this socket is participating in
+  socket.onSend = function (err) {
+    self._onWebSocketSend(socket, err)
+  }
+
+  socket.onMessageBound = function (params) {
+    self._onWebSocketRequest(socket, opts, params)
+  }
+  socket.on(&#x27;message&#x27;, socket.onMessageBound)
+
+  socket.onErrorBound = function (err) {
+    self._onWebSocketError(socket, err)
+  }
+  socket.on(&#x27;error&#x27;, socket.onErrorBound)
+
+  socket.onCloseBound = function () {
+    self._onWebSocketClose(socket)
+  }
+  socket.on(&#x27;close&#x27;, socket.onCloseBound)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.bittorrent-tracker.common" id="apidoc.module.bittorrent-tracker.common">module bittorrent-tracker.common</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.common.binaryToHex" id="apidoc.element.bittorrent-tracker.common.binaryToHex">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.common.</span>binaryToHex
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">binaryToHex = function (str) {
+  if (typeof str !== &#x27;string&#x27;) {
+    str = String(str)
+  }
+  return Buffer.from(str, &#x27;binary&#x27;).toString(&#x27;hex&#x27;)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (trackerId) {
+  // If absent, do not discard previous trackerId value
+  self._trackerId = trackerId
+}
+
+var response = Object.assign({}, data, {
+  announce: self.announceUrl,
+  infoHash: common.<span class="apidocCodeKeywordSpan">binaryToHex</span>(data.info_hash)
+})
+self.client.emit(&#x27;update&#x27;, response)
+
+var addrs
+if (Buffer.isBuffer(data.peers)) {
+  // tracker returned compact response
+  try {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.common.hexToBinary" id="apidoc.element.bittorrent-tracker.common.hexToBinary">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.common.</span>hexToBinary
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">hexToBinary = function (str) {
+  if (typeof str !== &#x27;string&#x27;) {
+    str = String(str)
+  }
+  return Buffer.from(str, &#x27;hex&#x27;).toString(&#x27;binary&#x27;)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  function generateOffer () {
+var offerId = randombytes(20).toString(&#x27;hex&#x27;)
+debug(&#x27;creating peer (from _generateOffers)&#x27;)
+var peer = self.peers[offerId] = self._createPeer({ initiator: true })
+peer.once(&#x27;signal&#x27;, function (offer) {
+  offers.push({
+    offer: offer,
+    offer_id: common.<span class="apidocCodeKeywordSpan">hexToBinary</span>(offerId)
+  })
+  checkDone()
+})
+peer.trackerTimeout = setTimeout(function () {
+  debug(&#x27;tracker timeout: destroying peer&#x27;)
+  peer.trackerTimeout = null
+  delete self.peers[offerId]
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.common.querystringParse" id="apidoc.element.bittorrent-tracker.common.querystringParse">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.common.</span>querystringParse
+        <span class="apidocSignatureSpan">(q)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">querystringParse = function (q) {
+  return querystring.parse(q, null, null, { decodeURIComponent: unescape })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+module.exports = parseHttpRequest
+
+var common = require(&#x27;../common&#x27;)
+
+function parseHttpRequest (req, opts) {
+  if (!opts) opts = {}
+  var s = req.url.split(&#x27;?&#x27;)
+  var params = common.<span class="apidocCodeKeywordSpan">querystringParse</span>(s[1])
+  params.type = &#x27;http&#x27;
+
+  if (opts.action === &#x27;announce&#x27; || s[0] === &#x27;/announce&#x27;) {
+params.action = common.ACTIONS.ANNOUNCE
+
+if (typeof params.info_hash !== &#x27;string&#x27; || params.info_hash.length !== 20) {
+  throw new Error(&#x27;invalid info_hash&#x27;)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.common.querystringStringify" id="apidoc.element.bittorrent-tracker.common.querystringStringify">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.common.</span>querystringStringify
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">querystringStringify = function (obj) {
+  var ret = querystring.stringify(obj, null, null, { encodeURIComponent: escape })
+  ret = ret.replace(/[@*/+]/g, function (char) {
+    // `escape` doesn&#x27;t encode the characters @*/+ so we do it manually
+    return &#x27;%&#x27; + char.charCodeAt(0).toString(16).toUpperCase()
+  })
+  return ret
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  cb(null)
+}
+}
+
+HTTPTracker.prototype._request = function (requestUrl, params, cb) {
+var self = this
+var u = requestUrl + (requestUrl.indexOf(&#x27;?&#x27;) === -1 ? &#x27;?&#x27; : &#x27;&#x26;&#x27;) +
+  common.<span class="apidocCodeKeywordSpan">querystringStringify</span>(params)
+
+self.cleanupFns.push(cleanup)
+
+var request = get.concat({
+  url: u,
+  timeout: common.REQUEST_TIMEOUT,
+  headers: {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.common.toUInt32" id="apidoc.element.bittorrent-tracker.common.toUInt32">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.common.</span>toUInt32
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toUInt32(n) {
+  var buf = Buffer.allocUnsafe(4)
+  buf.writeUInt32BE(n, 0)
+  return buf
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}, common.REQUEST_TIMEOUT)
+if (timeout.unref) timeout.unref()
+
+self.cleanupFns.push(cleanup)
+
+send(Buffer.concat([
+  common.CONNECTION_ID,
+  common.<span class="apidocCodeKeywordSpan">toUInt32</span>(common.ACTIONS.CONNECT),
+  transactionId
+]))
+
+socket.once(&#x27;error&#x27;, onError)
+socket.on(&#x27;message&#x27;, onSocketMessage)
+
+function cleanup () {
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.bittorrent-tracker.common_node" id="apidoc.module.bittorrent-tracker.common_node">module bittorrent-tracker.common_node</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.common_node.querystringParse" id="apidoc.element.bittorrent-tracker.common_node.querystringParse">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.common_node.</span>querystringParse
+        <span class="apidocSignatureSpan">(q)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">querystringParse = function (q) {
+  return querystring.parse(q, null, null, { decodeURIComponent: unescape })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+module.exports = parseHttpRequest
+
+var common = require(&#x27;../common&#x27;)
+
+function parseHttpRequest (req, opts) {
+  if (!opts) opts = {}
+  var s = req.url.split(&#x27;?&#x27;)
+  var params = common.<span class="apidocCodeKeywordSpan">querystringParse</span>(s[1])
+  params.type = &#x27;http&#x27;
+
+  if (opts.action === &#x27;announce&#x27; || s[0] === &#x27;/announce&#x27;) {
+params.action = common.ACTIONS.ANNOUNCE
+
+if (typeof params.info_hash !== &#x27;string&#x27; || params.info_hash.length !== 20) {
+  throw new Error(&#x27;invalid info_hash&#x27;)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.common_node.querystringStringify" id="apidoc.element.bittorrent-tracker.common_node.querystringStringify">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.common_node.</span>querystringStringify
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">querystringStringify = function (obj) {
+  var ret = querystring.stringify(obj, null, null, { encodeURIComponent: escape })
+  ret = ret.replace(/[@*/+]/g, function (char) {
+    // `escape` doesn&#x27;t encode the characters @*/+ so we do it manually
+    return &#x27;%&#x27; + char.charCodeAt(0).toString(16).toUpperCase()
+  })
+  return ret
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  cb(null)
+}
+}
+
+HTTPTracker.prototype._request = function (requestUrl, params, cb) {
+var self = this
+var u = requestUrl + (requestUrl.indexOf(&#x27;?&#x27;) === -1 ? &#x27;?&#x27; : &#x27;&#x26;&#x27;) +
+  common.<span class="apidocCodeKeywordSpan">querystringStringify</span>(params)
+
+self.cleanupFns.push(cleanup)
+
+var request = get.concat({
+  url: u,
+  timeout: common.REQUEST_TIMEOUT,
+  headers: {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.common_node.toUInt32" id="apidoc.element.bittorrent-tracker.common_node.toUInt32">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.common_node.</span>toUInt32
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toUInt32(n) {
+  var buf = Buffer.allocUnsafe(4)
+  buf.writeUInt32BE(n, 0)
+  return buf
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}, common.REQUEST_TIMEOUT)
+if (timeout.unref) timeout.unref()
+
+self.cleanupFns.push(cleanup)
+
+send(Buffer.concat([
+  common.CONNECTION_ID,
+  common.<span class="apidocCodeKeywordSpan">toUInt32</span>(common.ACTIONS.CONNECT),
+  transactionId
+]))
+
+socket.once(&#x27;error&#x27;, onError)
+socket.on(&#x27;message&#x27;, onSocketMessage)
+
+function cleanup () {
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.bittorrent-tracker.http_tracker" id="apidoc.module.bittorrent-tracker.http_tracker">module bittorrent-tracker.http_tracker</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.http_tracker.http_tracker" id="apidoc.element.bittorrent-tracker.http_tracker.http_tracker">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.</span>http_tracker
+        <span class="apidocSignatureSpan">(client, announceUrl, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function HTTPTracker(client, announceUrl, opts) {
+  var self = this
+  Tracker.call(self, client, announceUrl)
+  debug(&#x27;new http tracker %s&#x27;, announceUrl)
+
+  // Determine scrape url (if http tracker supports it)
+  self.scrapeUrl = null
+
+  var match = self.announceUrl.match(HTTP_SCRAPE_SUPPORT)
+  if (match) {
+    var pre = self.announceUrl.slice(0, match.index)
+    var post = self.announceUrl.slice(match.index + 9)
+    self.scrapeUrl = pre + &#x27;/scrape&#x27; + post
+  }
+
+  self.cleanupFns = []
+  self.maybeDestroyCleanup = null
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.http_tracker.super_" id="apidoc.element.bittorrent-tracker.http_tracker.super_">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.http_tracker.</span>super_
+        <span class="apidocSignatureSpan">(client, announceUrl)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Tracker(client, announceUrl) {
+  var self = this
+  EventEmitter.call(self)
+  self.client = client
+  self.announceUrl = announceUrl
+
+  self.interval = null
+  self.destroyed = false
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.bittorrent-tracker.http_tracker.prototype" id="apidoc.module.bittorrent-tracker.http_tracker.prototype">module bittorrent-tracker.http_tracker.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.http_tracker.prototype._onAnnounceResponse" id="apidoc.element.bittorrent-tracker.http_tracker.prototype._onAnnounceResponse">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.http_tracker.prototype.</span>_onAnnounceResponse
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_onAnnounceResponse = function (data) {
+  var self = this
+
+  var interval = data.interval || data[&#x27;min interval&#x27;]
+  if (interval) self.setInterval(interval * 1000)
+
+  var trackerId = data[&#x27;tracker id&#x27;]
+  if (trackerId) {
+    // If absent, do not discard previous trackerId value
+    self._trackerId = trackerId
+  }
+
+  var response = Object.assign({}, data, {
+    announce: self.announceUrl,
+    infoHash: common.binaryToHex(data.info_hash)
+  })
+  self.client.emit(&#x27;update&#x27;, response)
+
+  var addrs
+  if (Buffer.isBuffer(data.peers)) {
+    // tracker returned compact response
+    try {
+      addrs = compact2string.multi(data.peers)
+    } catch (err) {
+      return self.client.emit(&#x27;warning&#x27;, err)
+    }
+    addrs.forEach(function (addr) {
+      self.client.emit(&#x27;peer&#x27;, addr)
+    })
+  } else if (Array.isArray(data.peers)) {
+    // tracker returned normal response
+    data.peers.forEach(function (peer) {
+      self.client.emit(&#x27;peer&#x27;, peer.ip + &#x27;:&#x27; + peer.port)
+    })
+  }
+
+  if (Buffer.isBuffer(data.peers6)) {
+    // tracker returned compact response
+    try {
+      addrs = compact2string.multi6(data.peers6)
+    } catch (err) {
+      return self.client.emit(&#x27;warning&#x27;, err)
+    }
+    addrs.forEach(function (addr) {
+      self.client.emit(&#x27;peer&#x27;, addr)
+    })
+  } else if (Array.isArray(data.peers6)) {
+    // tracker returned normal response
+    data.peers6.forEach(function (peer) {
+      var ip = /^\[/.test(peer.ip) || !/:/.test(peer.ip)
+        ? peer.ip<span class="apidocCodeCommentSpan"> /* ipv6 w/ brackets or domain name */
+</span>        : &#x27;[&#x27; + peer.ip + &#x27;]&#x27; /* ipv6 without brackets */
+      self.client.emit(&#x27;peer&#x27;, ip + &#x27;:&#x27; + peer.port)
+    })
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  peer_id: self.client._peerIdBinary,
+  port: self.client._port
+})
+if (self._trackerId) params.trackerid = self._trackerId
+
+self._request(self.announceUrl, params, function (err, data) {
+  if (err) return self.client.emit(&#x27;warning&#x27;, err)
+  self.<span class="apidocCodeKeywordSpan">_onAnnounceResponse</span>(data)
+})
+}
+
+HTTPTracker.prototype.scrape = function (opts) {
+var self = this
+if (self.destroyed) return
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.http_tracker.prototype._onScrapeResponse" id="apidoc.element.bittorrent-tracker.http_tracker.prototype._onScrapeResponse">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.http_tracker.prototype.</span>_onScrapeResponse
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_onScrapeResponse = function (data) {
+  var self = this
+  // NOTE: the unofficial spec says to use the &#x27;files&#x27; key, &#x27;host&#x27; has been
+  // seen in practice
+  data = data.files || data.host || {}
+
+  var keys = Object.keys(data)
+  if (keys.length === 0) {
+    self.client.emit(&#x27;warning&#x27;, new Error(&#x27;invalid scrape response&#x27;))
+    return
+  }
+
+  keys.forEach(function (infoHash) {
+    // TODO: optionally handle data.flags.min_request_interval
+    // (separate from announce interval)
+    var response = Object.assign(data[infoHash], {
+      announce: self.announceUrl,
+      infoHash: common.binaryToHex(infoHash)
+    })
+    self.client.emit(&#x27;scrape&#x27;, response)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  })
+  : (opts.infoHash &#x26;&#x26; opts.infoHash.toString(&#x27;binary&#x27;)) || self.client._infoHashBinary
+var params = {
+  info_hash: infoHashes
+}
+self._request(self.scrapeUrl, params, function (err, data) {
+  if (err) return self.client.emit(&#x27;warning&#x27;, err)
+  self.<span class="apidocCodeKeywordSpan">_onScrapeResponse</span>(data)
+})
+}
+
+HTTPTracker.prototype.destroy = function (cb) {
+var self = this
+if (self.destroyed) return cb(null)
+self.destroyed = true
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.http_tracker.prototype._request" id="apidoc.element.bittorrent-tracker.http_tracker.prototype._request">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.http_tracker.prototype.</span>_request
+        <span class="apidocSignatureSpan">(requestUrl, params, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_request = function (requestUrl, params, cb) {
+  var self = this
+  var u = requestUrl + (requestUrl.indexOf(&#x27;?&#x27;) === -1 ? &#x27;?&#x27; : &#x27;&#x26;&#x27;) +
+    common.querystringStringify(params)
+
+  self.cleanupFns.push(cleanup)
+
+  var request = get.concat({
+    url: u,
+    timeout: common.REQUEST_TIMEOUT,
+    headers: {
+      &#x27;user-agent&#x27;: self.client._userAgent || &#x27;&#x27;
+    }
+  }, onResponse)
+
+  function cleanup () {
+    if (request) {
+      arrayRemove(self.cleanupFns, self.cleanupFns.indexOf(cleanup))
+      request.abort()
+      request = null
+    }
+    if (self.maybeDestroyCleanup) self.maybeDestroyCleanup()
+  }
+
+  function onResponse (err, res, data) {
+    cleanup()
+    if (self.destroyed) return
+
+    if (err) return cb(err)
+    if (res.statusCode !== 200) {
+      return cb(new Error(&#x27;Non-200 response code &#x27; +
+        res.statusCode + &#x27; from &#x27; + self.announceUrl))
+    }
+    if (!data || data.length === 0) {
+      return cb(new Error(&#x27;Invalid tracker response from&#x27; +
+        self.announceUrl))
+    }
+
+    try {
+      data = bencode.decode(data)
+    } catch (err) {
+      return cb(new Error(&#x27;Error decoding tracker response: &#x27; + err.message))
+    }
+    var failure = data[&#x27;failure reason&#x27;]
+    if (failure) {
+      debug(&#x27;failure from &#x27; + requestUrl + &#x27; (&#x27; + failure + &#x27;)&#x27;)
+      return cb(new Error(failure))
+    }
+
+    var warning = data[&#x27;warning message&#x27;]
+    if (warning) {
+      debug(&#x27;warning from &#x27; + requestUrl + &#x27; (&#x27; + warning + &#x27;)&#x27;)
+      self.client.emit(&#x27;warning&#x27;, new Error(warning))
+    }
+
+    debug(&#x27;response from &#x27; + requestUrl)
+
+    cb(null, data)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  compact: (opts.compact == null) ? 1 : opts.compact,
+  info_hash: self.client._infoHashBinary,
+  peer_id: self.client._peerIdBinary,
+  port: self.client._port
+})
+if (self._trackerId) params.trackerid = self._trackerId
+
+self.<span class="apidocCodeKeywordSpan">_request</span>(self.announceUrl, params, function (err, data) {
+  if (err) return self.client.emit(&#x27;warning&#x27;, err)
+  self._onAnnounceResponse(data)
+})
+}
+
+HTTPTracker.prototype.scrape = function (opts) {
+var self = this
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.http_tracker.prototype.announce" id="apidoc.element.bittorrent-tracker.http_tracker.prototype.announce">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.http_tracker.prototype.</span>announce
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">announce = function (opts) {
+  var self = this
+  if (self.destroyed) return
+
+  var params = extend(opts, {
+    compact: (opts.compact == null) ? 1 : opts.compact,
+    info_hash: self.client._infoHashBinary,
+    peer_id: self.client._peerIdBinary,
+    port: self.client._port
+  })
+  if (self._trackerId) params.trackerid = self._trackerId
+
+  self._request(self.announceUrl, params, function (err, data) {
+    if (err) return self.client.emit(&#x27;warning&#x27;, err)
+    self._onAnnounceResponse(data)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var self = this
+  if (intervalMs == null) intervalMs = self.DEFAULT_ANNOUNCE_INTERVAL
+
+  clearInterval(self.interval)
+
+  if (intervalMs) {
+    self.interval = setInterval(function () {
+      self.<span class="apidocCodeKeywordSpan">announce</span>(self.client._defaultAnnounceOpts())
+    }, intervalMs)
+    if (self.interval.unref) self.interval.unref()
+  }
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.http_tracker.prototype.destroy" id="apidoc.element.bittorrent-tracker.http_tracker.prototype.destroy">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.http_tracker.prototype.</span>destroy
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">destroy = function (cb) {
+  var self = this
+  if (self.destroyed) return cb(null)
+  self.destroyed = true
+  clearInterval(self.interval)
+
+  // If there are no pending requests, destroy immediately.
+  if (self.cleanupFns.length === 0) return destroyCleanup()
+
+  // Otherwise, wait a short time for pending requests to complete, then force
+  // destroy them.
+  var timeout = setTimeout(destroyCleanup, common.DESTROY_TIMEOUT)
+
+  // But, if all pending requests complete before the timeout fires, do cleanup
+  // right away.
+  self.maybeDestroyCleanup = function () {
+    if (self.cleanupFns.length === 0) destroyCleanup()
+  }
+
+  function destroyCleanup () {
+    if (timeout) {
+      clearTimeout(timeout)
+      timeout = null
+    }
+    self.maybeDestroyCleanup = null
+    self.cleanupFns.slice(0).forEach(function (cleanup) {
+      cleanup()
+    })
+    self.cleanupFns = []
+    cb(null)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+customParam: &#x27;blah&#x27; // custom parameters supported
+})
+
+// stop getting peers from the tracker, gracefully leave the swarm
+client.stop()
+
+// ungracefully leave the swarm (without sending final &#x27;stop&#x27; message)
+client.<span class="apidocCodeKeywordSpan">destroy</span>()
+
+// scrape
+client.scrape()
+
+client.on(&#x27;scrape&#x27;, function (data) {
+console.log(&#x27;got a scrape response from tracker: &#x27; + data.announce)
+console.log(&#x27;number of seeders in the swarm: &#x27; + data.complete)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.http_tracker.prototype.scrape" id="apidoc.element.bittorrent-tracker.http_tracker.prototype.scrape">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.http_tracker.prototype.</span>scrape
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">scrape = function (opts) {
+  var self = this
+  if (self.destroyed) return
+
+  if (!self.scrapeUrl) {
+    self.client.emit(&#x27;error&#x27;, new Error(&#x27;scrape not supported &#x27; + self.announceUrl))
+    return
+  }
+
+  var infoHashes = (Array.isArray(opts.infoHash) &#x26;&#x26; opts.infoHash.length &#x3e; 0)
+    ? opts.infoHash.map(function (infoHash) {
+      return infoHash.toString(&#x27;binary&#x27;)
+    })
+    : (opts.infoHash &#x26;&#x26; opts.infoHash.toString(&#x27;binary&#x27;)) || self.client._infoHashBinary
+  var params = {
+    info_hash: infoHashes
+  }
+  self._request(self.scrapeUrl, params, function (err, data) {
+    if (err) return self.client.emit(&#x27;warning&#x27;, err)
+    self._onScrapeResponse(data)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// stop getting peers from the tracker, gracefully leave the swarm
+client.stop()
+
+// ungracefully leave the swarm (without sending final &#x27;stop&#x27; message)
+client.destroy()
+
+// scrape
+client.<span class="apidocCodeKeywordSpan">scrape</span>()
+
+client.on(&#x27;scrape&#x27;, function (data) {
+  console.log(&#x27;got a scrape response from tracker: &#x27; + data.announce)
+  console.log(&#x27;number of seeders in the swarm: &#x27; + data.complete)
+  console.log(&#x27;number of leechers in the swarm: &#x27; + data.incomplete)
+  console.log(&#x27;number of total downloads of this torrent: &#x27; + data.downloaded)
+})
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.bittorrent-tracker.tracker" id="apidoc.module.bittorrent-tracker.tracker">module bittorrent-tracker.tracker</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.tracker.tracker" id="apidoc.element.bittorrent-tracker.tracker.tracker">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.</span>tracker
+        <span class="apidocSignatureSpan">(client, announceUrl)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Tracker(client, announceUrl) {
+  var self = this
+  EventEmitter.call(self)
+  self.client = client
+  self.announceUrl = announceUrl
+
+  self.interval = null
+  self.destroyed = false
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.tracker.super_" id="apidoc.element.bittorrent-tracker.tracker.super_">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.tracker.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.bittorrent-tracker.tracker.prototype" id="apidoc.module.bittorrent-tracker.tracker.prototype">module bittorrent-tracker.tracker.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.tracker.prototype.setInterval" id="apidoc.element.bittorrent-tracker.tracker.prototype.setInterval">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.tracker.prototype.</span>setInterval
+        <span class="apidocSignatureSpan">(intervalMs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setInterval = function (intervalMs) {
+  var self = this
+  if (intervalMs == null) intervalMs = self.DEFAULT_ANNOUNCE_INTERVAL
+
+  clearInterval(self.interval)
+
+  if (intervalMs) {
+    self.interval = setInterval(function () {
+      self.announce(self.client._defaultAnnounceOpts())
+    }, intervalMs)
+    if (self.interval.unref) self.interval.unref()
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+}
+
+HTTPTracker.prototype._onAnnounceResponse = function (data) {
+var self = this
+
+var interval = data.interval || data[&#x27;min interval&#x27;]
+if (interval) self.<span class="apidocCodeKeywordSpan">setInterval</span>(interval * 1000)
+
+var trackerId = data[&#x27;tracker id&#x27;]
+if (trackerId) {
+  // If absent, do not discard previous trackerId value
+  self._trackerId = trackerId
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.bittorrent-tracker.udp_tracker" id="apidoc.module.bittorrent-tracker.udp_tracker">module bittorrent-tracker.udp_tracker</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.udp_tracker.udp_tracker" id="apidoc.element.bittorrent-tracker.udp_tracker.udp_tracker">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.</span>udp_tracker
+        <span class="apidocSignatureSpan">(client, announceUrl, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function UDPTracker(client, announceUrl, opts) {
+  var self = this
+  Tracker.call(self, client, announceUrl)
+  debug(&#x27;new udp tracker %s&#x27;, announceUrl)
+
+  self.cleanupFns = []
+  self.maybeDestroyCleanup = null
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.udp_tracker.super_" id="apidoc.element.bittorrent-tracker.udp_tracker.super_">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.udp_tracker.</span>super_
+        <span class="apidocSignatureSpan">(client, announceUrl)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Tracker(client, announceUrl) {
+  var self = this
+  EventEmitter.call(self)
+  self.client = client
+  self.announceUrl = announceUrl
+
+  self.interval = null
+  self.destroyed = false
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.bittorrent-tracker.udp_tracker.prototype" id="apidoc.module.bittorrent-tracker.udp_tracker.prototype">module bittorrent-tracker.udp_tracker.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.udp_tracker.prototype._request" id="apidoc.element.bittorrent-tracker.udp_tracker.prototype._request">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.udp_tracker.prototype.</span>_request
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_request = function (opts) {
+  var self = this
+  if (!opts) opts = {}
+  var parsedUrl = url.parse(self.announceUrl)
+  var transactionId = genTransactionId()
+  var socket = dgram.createSocket(&#x27;udp4&#x27;)
+
+  var timeout = setTimeout(function () {
+    // does not matter if `stopped` event arrives, so supress errors
+    if (opts.event === &#x27;stopped&#x27;) cleanup()
+    else onError(new Error(&#x27;tracker request timed out (&#x27; + opts.event + &#x27;)&#x27;))
+    timeout = null
+  }, common.REQUEST_TIMEOUT)
+  if (timeout.unref) timeout.unref()
+
+  self.cleanupFns.push(cleanup)
+
+  send(Buffer.concat([
+    common.CONNECTION_ID,
+    common.toUInt32(common.ACTIONS.CONNECT),
+    transactionId
+  ]))
+
+  socket.once(&#x27;error&#x27;, onError)
+  socket.on(&#x27;message&#x27;, onSocketMessage)
+
+  function cleanup () {
+    if (timeout) {
+      clearTimeout(timeout)
+      timeout = null
+    }
+    if (socket) {
+      arrayRemove(self.cleanupFns, self.cleanupFns.indexOf(cleanup))
+      socket.removeListener(&#x27;error&#x27;, onError)
+      socket.removeListener(&#x27;message&#x27;, onSocketMessage)
+      socket.on(&#x27;error&#x27;, noop) // ignore all future errors
+      try { socket.close() } catch (err) {}
+      socket = null
+    }
+    if (self.maybeDestroyCleanup) self.maybeDestroyCleanup()
+  }
+
+  function onError (err) {
+    cleanup()
+    if (self.destroyed) return
+
+    if (err.message) err.message += &#x27; (&#x27; + self.announceUrl + &#x27;)&#x27;
+    // errors will often happen if a tracker is offline, so don&#x27;t treat it as fatal
+    self.client.emit(&#x27;warning&#x27;, err)
+  }
+
+  function onSocketMessage (msg) {
+    if (msg.length &#x3c; 8 || msg.readUInt32BE(4) !== transactionId.readUInt32BE(0)) {
+      return onError(new Error(&#x27;tracker sent invalid transaction id&#x27;))
+    }
+
+    var action = msg.readUInt32BE(0)
+    debug(&#x27;UDP response %s, action %s&#x27;, self.announceUrl, action)
+    switch (action) {
+      case 0: // handshake
+        // Note: no check for `self.destroyed` so that pending messages to the
+        // tracker can still be sent/received even after destroy() is called
+
+        if (msg.length &#x3c; 16) return onError(new Error(&#x27;invalid udp handshake&#x27;))
+
+        if (opts._scrape) scrape(msg.slice(8, 16))
+        else announce(msg.slice(8, 16), opts)
+
+        break
+
+      case 1: // announce
+        cleanup()
+        if (self.destroyed) return
+
+        if (msg.length &#x3c; 20) return onError(new Error(&#x27;invalid announce message&#x27;))
+
+        var interval = msg.readUInt32BE(8)
+        if (interval) self.setInterval(interval * 1000)
+
+        self.client.emit(&#x27;update&#x27;, {
+          announce: self.announceUrl,
+          complete: msg.readUInt32BE(16),
+          incomplete: msg.readUInt32BE(12)
+        })
+
+        var addrs
+        try {
+          addrs = compact2string.multi(msg.slice(20))
+        } catch (err) {
+          return self.client.emit(&#x27;warning&#x27;, err)
+        }
+        addrs.forEach(function (addr) {
+          self.client.emit(&#x27;peer&#x27;, addr)
+        })
+
+        break
+
+      case 2: // scrape
+        cleanup()
+        if (self.destroyed) return
+
+        if (msg.length &#x3c; 20 || (msg.length - 8) % 12 !== 0) {
+          return onError(new Error(&#x27;invalid scrape message&#x27;))
+        }
+        var infoHashes = (Array.isArray(opts.infoHash) &#x26;&#x26; opts.infoHash.length &#x3e; 0)
+          ? opts.infoHash.map(function (infoHash) { return infoHash.toString(&#x27;hex&#x27;) })
+          : [ (opts.infoHash &#x26;&#x26; opts.infoHash.toString(&#x27;hex&#x27;)) || self.client.infoHash ]
+
+        for (var i = 0, len = (msg.length - 8) / 12; i &#x3c; len; i += 1) {
+          self.client.emit(&#x27;scrape&#x27;, {
+            announce: self.announceUrl,
+            infoHash: infoHashes[i],
+            complete: msg.readUInt32BE(8 + (i * 12)),
+            downloaded: msg.readUInt32BE(12 + (i * 12)),
+            incomplete: msg.readUInt32BE(16 + (i * 12))
+          })
+        }
+
+        break
+
+      case 3: // error
+        cleanup()
+        if (self.destroyed) return
+
+        if (msg.length &#x3c; 8) return onError(new Error(&#x27;invalid error message&#x27;))
+        self.client.emit(&#x27;warning&#x27;, new Error(msg.slice(8).toString()))
+
+        break
+
+      default:
+        onError(new Error(&#x27;tracker sent invalid action&#x27;))
+        break
+    } ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  compact: (opts.compact == null) ? 1 : opts.compact,
+  info_hash: self.client._infoHashBinary,
+  peer_id: self.client._peerIdBinary,
+  port: self.client._port
+})
+if (self._trackerId) params.trackerid = self._trackerId
+
+self.<span class="apidocCodeKeywordSpan">_request</span>(self.announceUrl, params, function (err, data) {
+  if (err) return self.client.emit(&#x27;warning&#x27;, err)
+  self._onAnnounceResponse(data)
+})
+}
+
+HTTPTracker.prototype.scrape = function (opts) {
+var self = this
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.udp_tracker.prototype.announce" id="apidoc.element.bittorrent-tracker.udp_tracker.prototype.announce">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.udp_tracker.prototype.</span>announce
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">announce = function (opts) {
+  var self = this
+  if (self.destroyed) return
+  self._request(opts)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var self = this
+  if (intervalMs == null) intervalMs = self.DEFAULT_ANNOUNCE_INTERVAL
+
+  clearInterval(self.interval)
+
+  if (intervalMs) {
+    self.interval = setInterval(function () {
+      self.<span class="apidocCodeKeywordSpan">announce</span>(self.client._defaultAnnounceOpts())
+    }, intervalMs)
+    if (self.interval.unref) self.interval.unref()
+  }
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.udp_tracker.prototype.destroy" id="apidoc.element.bittorrent-tracker.udp_tracker.prototype.destroy">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.udp_tracker.prototype.</span>destroy
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">destroy = function (cb) {
+  var self = this
+  if (self.destroyed) return cb(null)
+  self.destroyed = true
+  clearInterval(self.interval)
+
+  // If there are no pending requests, destroy immediately.
+  if (self.cleanupFns.length === 0) return destroyCleanup()
+
+  // Otherwise, wait a short time for pending requests to complete, then force
+  // destroy them.
+  var timeout = setTimeout(destroyCleanup, common.DESTROY_TIMEOUT)
+
+  // But, if all pending requests complete before the timeout fires, do cleanup
+  // right away.
+  self.maybeDestroyCleanup = function () {
+    if (self.cleanupFns.length === 0) destroyCleanup()
+  }
+
+  function destroyCleanup () {
+    if (timeout) {
+      clearTimeout(timeout)
+      timeout = null
+    }
+    self.maybeDestroyCleanup = null
+    self.cleanupFns.slice(0).forEach(function (cleanup) {
+      cleanup()
+    })
+    self.cleanupFns = []
+    cb(null)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+customParam: &#x27;blah&#x27; // custom parameters supported
+})
+
+// stop getting peers from the tracker, gracefully leave the swarm
+client.stop()
+
+// ungracefully leave the swarm (without sending final &#x27;stop&#x27; message)
+client.<span class="apidocCodeKeywordSpan">destroy</span>()
+
+// scrape
+client.scrape()
+
+client.on(&#x27;scrape&#x27;, function (data) {
+console.log(&#x27;got a scrape response from tracker: &#x27; + data.announce)
+console.log(&#x27;number of seeders in the swarm: &#x27; + data.complete)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.udp_tracker.prototype.scrape" id="apidoc.element.bittorrent-tracker.udp_tracker.prototype.scrape">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.udp_tracker.prototype.</span>scrape
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">scrape = function (opts) {
+  var self = this
+  if (self.destroyed) return
+  opts._scrape = true
+  self._request(opts) // udp scrape uses same announce url
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// stop getting peers from the tracker, gracefully leave the swarm
+client.stop()
+
+// ungracefully leave the swarm (without sending final &#x27;stop&#x27; message)
+client.destroy()
+
+// scrape
+client.<span class="apidocCodeKeywordSpan">scrape</span>()
+
+client.on(&#x27;scrape&#x27;, function (data) {
+  console.log(&#x27;got a scrape response from tracker: &#x27; + data.announce)
+  console.log(&#x27;number of seeders in the swarm: &#x27; + data.complete)
+  console.log(&#x27;number of leechers in the swarm: &#x27; + data.incomplete)
+  console.log(&#x27;number of total downloads of this torrent: &#x27; + data.downloaded)
+})
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.bittorrent-tracker.websocket_tracker" id="apidoc.module.bittorrent-tracker.websocket_tracker">module bittorrent-tracker.websocket_tracker</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.websocket_tracker.websocket_tracker" id="apidoc.element.bittorrent-tracker.websocket_tracker.websocket_tracker">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.</span>websocket_tracker
+        <span class="apidocSignatureSpan">(client, announceUrl, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function WebSocketTracker(client, announceUrl, opts) {
+  var self = this
+  Tracker.call(self, client, announceUrl)
+  debug(&#x27;new websocket tracker %s&#x27;, announceUrl)
+
+  self.peers = {} // peers (offer id -&#x3e; peer)
+  self.socket = null
+
+  self.reconnecting = false
+  self.retries = 0
+  self.reconnectTimer = null
+
+  // Simple boolean flag to track whether the socket has received data from
+  // the websocket server since the last time socket.send() was called.
+  self.expectingResponse = false
+
+  self._openSocket()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.websocket_tracker.super_" id="apidoc.element.bittorrent-tracker.websocket_tracker.super_">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.</span>super_
+        <span class="apidocSignatureSpan">(client, announceUrl)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Tracker(client, announceUrl) {
+  var self = this
+  EventEmitter.call(self)
+  self.client = client
+  self.announceUrl = announceUrl
+
+  self.interval = null
+  self.destroyed = false
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.bittorrent-tracker.websocket_tracker.prototype" id="apidoc.module.bittorrent-tracker.websocket_tracker.prototype">module bittorrent-tracker.websocket_tracker.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype._createPeer" id="apidoc.element.bittorrent-tracker.websocket_tracker.prototype._createPeer">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>_createPeer
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_createPeer = function (opts) {
+  var self = this
+
+  opts = Object.assign({
+    trickle: false,
+    config: self.client._rtcConfig,
+    wrtc: self.client._wrtc
+  }, opts)
+
+  var peer = new Peer(opts)
+
+  peer.once(&#x27;error&#x27;, onError)
+  peer.once(&#x27;connect&#x27;, onConnect)
+
+  return peer
+
+  // Handle peer &#x27;error&#x27; events that are fired *before* the peer is emitted in
+  // a &#x27;peer&#x27; event.
+  function onError (err) {
+    self.client.emit(&#x27;warning&#x27;, new Error(&#x27;Connection error: &#x27; + err.message))
+    peer.destroy()
+  }
+
+  // Once the peer is emitted in a &#x27;peer&#x27; event, then it&#x27;s the consumer&#x27;s
+  // responsibility to listen for errors, so the listeners are removed here.
+  function onConnect () {
+    peer.removeListener(&#x27;error&#x27;, onError)
+    peer.removeListener(&#x27;connect&#x27;, onConnect)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  })
+  self.client.emit(&#x27;update&#x27;, response)
+}
+
+var peer
+if (data.offer &#x26;&#x26; data.peer_id) {
+  debug(&#x27;creating peer (from remote offer)&#x27;)
+  peer = self.<span class="apidocCodeKeywordSpan">_createPeer</span>()
+  peer.id = common.binaryToHex(data.peer_id)
+  peer.once(&#x27;signal&#x27;, function (answer) {
+    var params = {
+      action: &#x27;announce&#x27;,
+      info_hash: self.client._infoHashBinary,
+      peer_id: self.client._peerIdBinary,
+      to_peer_id: data.peer_id,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype._generateOffers" id="apidoc.element.bittorrent-tracker.websocket_tracker.prototype._generateOffers">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>_generateOffers
+        <span class="apidocSignatureSpan">(numwant, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_generateOffers = function (numwant, cb) {
+  var self = this
+  var offers = []
+  debug(&#x27;generating %s offers&#x27;, numwant)
+
+  for (var i = 0; i &#x3c; numwant; ++i) {
+    generateOffer()
+  }
+  checkDone()
+
+  function generateOffer () {
+    var offerId = randombytes(20).toString(&#x27;hex&#x27;)
+    debug(&#x27;creating peer (from _generateOffers)&#x27;)
+    var peer = self.peers[offerId] = self._createPeer({ initiator: true })
+    peer.once(&#x27;signal&#x27;, function (offer) {
+      offers.push({
+        offer: offer,
+        offer_id: common.hexToBinary(offerId)
+      })
+      checkDone()
+    })
+    peer.trackerTimeout = setTimeout(function () {
+      debug(&#x27;tracker timeout: destroying peer&#x27;)
+      peer.trackerTimeout = null
+      delete self.peers[offerId]
+      peer.destroy()
+    }, OFFER_TIMEOUT)
+    if (peer.trackerTimeout.unref) peer.trackerTimeout.unref()
+  }
+
+  function checkDone () {
+    if (offers.length === numwant) {
+      debug(&#x27;generated %s offers&#x27;, numwant)
+      cb(offers)
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (opts.event === &#x27;stopped&#x27; || opts.event === &#x27;completed&#x27;) {
+    // Don&#x27;t include offers with &#x27;stopped&#x27; or &#x27;completed&#x27; event
+    self._send(params)
+  } else {
+    // Limit the number of offers that are generated, since it can be slow
+    var numwant = Math.min(opts.numwant, 10)
+
+    self.<span class="apidocCodeKeywordSpan">_generateOffers</span>(numwant, function (offers) {
+      params.numwant = numwant
+      params.offers = offers
+      self._send(params)
+    })
+  }
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype._onAnnounceResponse" id="apidoc.element.bittorrent-tracker.websocket_tracker.prototype._onAnnounceResponse">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>_onAnnounceResponse
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_onAnnounceResponse = function (data) {
+  var self = this
+
+  if (data.info_hash !== self.client._infoHashBinary) {
+    debug(
+      &#x27;ignoring websocket data from %s for %s (looking for %s: reused socket)&#x27;,
+      self.announceUrl, common.binaryToHex(data.info_hash), self.client.infoHash
+    )
+    return
+  }
+
+  if (data.peer_id &#x26;&#x26; data.peer_id === self.client._peerIdBinary) {
+    // ignore offers/answers from this client
+    return
+  }
+
+  debug(
+    &#x27;received %s from %s for %s&#x27;,
+    JSON.stringify(data), self.announceUrl, self.client.infoHash
+  )
+
+  var failure = data[&#x27;failure reason&#x27;]
+  if (failure) return self.client.emit(&#x27;warning&#x27;, new Error(failure))
+
+  var warning = data[&#x27;warning message&#x27;]
+  if (warning) self.client.emit(&#x27;warning&#x27;, new Error(warning))
+
+  var interval = data.interval || data[&#x27;min interval&#x27;]
+  if (interval) self.setInterval(interval * 1000)
+
+  var trackerId = data[&#x27;tracker id&#x27;]
+  if (trackerId) {
+    // If absent, do not discard previous trackerId value
+    self._trackerId = trackerId
+  }
+
+  if (data.complete != null) {
+    var response = Object.assign({}, data, {
+      announce: self.announceUrl,
+      infoHash: common.binaryToHex(data.info_hash)
+    })
+    self.client.emit(&#x27;update&#x27;, response)
+  }
+
+  var peer
+  if (data.offer &#x26;&#x26; data.peer_id) {
+    debug(&#x27;creating peer (from remote offer)&#x27;)
+    peer = self._createPeer()
+    peer.id = common.binaryToHex(data.peer_id)
+    peer.once(&#x27;signal&#x27;, function (answer) {
+      var params = {
+        action: &#x27;announce&#x27;,
+        info_hash: self.client._infoHashBinary,
+        peer_id: self.client._peerIdBinary,
+        to_peer_id: data.peer_id,
+        answer: answer,
+        offer_id: data.offer_id
+      }
+      if (self._trackerId) params.trackerid = self._trackerId
+      self._send(params)
+    })
+    peer.signal(data.offer)
+    self.client.emit(&#x27;peer&#x27;, peer)
+  }
+
+  if (data.answer &#x26;&#x26; data.peer_id) {
+    var offerId = common.binaryToHex(data.offer_id)
+    peer = self.peers[offerId]
+    if (peer) {
+      peer.id = common.binaryToHex(data.peer_id)
+      peer.signal(data.answer)
+      self.client.emit(&#x27;peer&#x27;, peer)
+
+      clearTimeout(peer.trackerTimeout)
+      peer.trackerTimeout = null
+      delete self.peers[offerId]
+    } else {
+      debug(&#x27;got unexpected answer: &#x27; + JSON.stringify(data.answer))
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  peer_id: self.client._peerIdBinary,
+  port: self.client._port
+})
+if (self._trackerId) params.trackerid = self._trackerId
+
+self._request(self.announceUrl, params, function (err, data) {
+  if (err) return self.client.emit(&#x27;warning&#x27;, err)
+  self.<span class="apidocCodeKeywordSpan">_onAnnounceResponse</span>(data)
+})
+}
+
+HTTPTracker.prototype.scrape = function (opts) {
+var self = this
+if (self.destroyed) return
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype._onScrapeResponse" id="apidoc.element.bittorrent-tracker.websocket_tracker.prototype._onScrapeResponse">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>_onScrapeResponse
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_onScrapeResponse = function (data) {
+  var self = this
+  data = data.files || {}
+
+  var keys = Object.keys(data)
+  if (keys.length === 0) {
+    self.client.emit(&#x27;warning&#x27;, new Error(&#x27;invalid scrape response&#x27;))
+    return
+  }
+
+  keys.forEach(function (infoHash) {
+    // TODO: optionally handle data.flags.min_request_interval
+    // (separate from announce interval)
+    var response = Object.assign(data[infoHash], {
+      announce: self.announceUrl,
+      infoHash: common.binaryToHex(infoHash)
+    })
+    self.client.emit(&#x27;scrape&#x27;, response)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  })
+  : (opts.infoHash &#x26;&#x26; opts.infoHash.toString(&#x27;binary&#x27;)) || self.client._infoHashBinary
+var params = {
+  info_hash: infoHashes
+}
+self._request(self.scrapeUrl, params, function (err, data) {
+  if (err) return self.client.emit(&#x27;warning&#x27;, err)
+  self.<span class="apidocCodeKeywordSpan">_onScrapeResponse</span>(data)
+})
+}
+
+HTTPTracker.prototype.destroy = function (cb) {
+var self = this
+if (self.destroyed) return cb(null)
+self.destroyed = true
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype._onSocketClose" id="apidoc.element.bittorrent-tracker.websocket_tracker.prototype._onSocketClose">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>_onSocketClose
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_onSocketClose = function () {
+  var self = this
+  if (self.destroyed) return
+  self.destroy()
+  self._startReconnectTimer()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+self._onSocketErrorBound = function (err) {
+  self._onSocketError(err)
+}
+self._onSocketDataBound = function (data) {
+  self._onSocketData(data)
+}
+self._onSocketCloseBound = function () {
+  self.<span class="apidocCodeKeywordSpan">_onSocketClose</span>()
+}
+
+self.socket = socketPool[self.announceUrl]
+if (self.socket) {
+  socketPool[self.announceUrl].consumers += 1
+} else {
+  self.socket = socketPool[self.announceUrl] = new Socket(self.announceUrl)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype._onSocketConnect" id="apidoc.element.bittorrent-tracker.websocket_tracker.prototype._onSocketConnect">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>_onSocketConnect
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_onSocketConnect = function () {
+  var self = this
+  if (self.destroyed) return
+
+  if (self.reconnecting) {
+    self.reconnecting = false
+    self.retries = 0
+    self.announce(self.client._defaultAnnounceOpts())
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+WebSocketTracker.prototype._openSocket = function () {
+var self = this
+self.destroyed = false
+
+if (!self.peers) self.peers = {}
+
+self._onSocketConnectBound = function () {
+  self.<span class="apidocCodeKeywordSpan">_onSocketConnect</span>()
+}
+self._onSocketErrorBound = function (err) {
+  self._onSocketError(err)
+}
+self._onSocketDataBound = function (data) {
+  self._onSocketData(data)
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype._onSocketData" id="apidoc.element.bittorrent-tracker.websocket_tracker.prototype._onSocketData">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>_onSocketData
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_onSocketData = function (data) {
+  var self = this
+  if (self.destroyed) return
+
+  self.expectingResponse = false
+
+  try {
+    data = JSON.parse(data)
+  } catch (err) {
+    self.client.emit(&#x27;warning&#x27;, new Error(&#x27;Invalid tracker response&#x27;))
+    return
+  }
+
+  if (data.action === &#x27;announce&#x27;) {
+    self._onAnnounceResponse(data)
+  } else if (data.action === &#x27;scrape&#x27;) {
+    self._onScrapeResponse(data)
+  } else {
+    self._onSocketError(new Error(&#x27;invalid action in WS response: &#x27; + data.action))
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+self._onSocketConnectBound = function () {
+  self._onSocketConnect()
+}
+self._onSocketErrorBound = function (err) {
+  self._onSocketError(err)
+}
+self._onSocketDataBound = function (data) {
+  self.<span class="apidocCodeKeywordSpan">_onSocketData</span>(data)
+}
+self._onSocketCloseBound = function () {
+  self._onSocketClose()
+}
+
+self.socket = socketPool[self.announceUrl]
+if (self.socket) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype._onSocketError" id="apidoc.element.bittorrent-tracker.websocket_tracker.prototype._onSocketError">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>_onSocketError
+        <span class="apidocSignatureSpan">(err)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_onSocketError = function (err) {
+  var self = this
+  if (self.destroyed) return
+  self.destroy()
+  // errors will often happen if a tracker is offline, so don&#x27;t treat it as fatal
+  self.client.emit(&#x27;warning&#x27;, err)
+  self._startReconnectTimer()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+if (!self.peers) self.peers = {}
+
+self._onSocketConnectBound = function () {
+  self._onSocketConnect()
+}
+self._onSocketErrorBound = function (err) {
+  self.<span class="apidocCodeKeywordSpan">_onSocketError</span>(err)
+}
+self._onSocketDataBound = function (data) {
+  self._onSocketData(data)
+}
+self._onSocketCloseBound = function () {
+  self._onSocketClose()
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype._openSocket" id="apidoc.element.bittorrent-tracker.websocket_tracker.prototype._openSocket">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>_openSocket
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_openSocket = function () {
+  var self = this
+  self.destroyed = false
+
+  if (!self.peers) self.peers = {}
+
+  self._onSocketConnectBound = function () {
+    self._onSocketConnect()
+  }
+  self._onSocketErrorBound = function (err) {
+    self._onSocketError(err)
+  }
+  self._onSocketDataBound = function (data) {
+    self._onSocketData(data)
+  }
+  self._onSocketCloseBound = function () {
+    self._onSocketClose()
+  }
+
+  self.socket = socketPool[self.announceUrl]
+  if (self.socket) {
+    socketPool[self.announceUrl].consumers += 1
+  } else {
+    self.socket = socketPool[self.announceUrl] = new Socket(self.announceUrl)
+    self.socket.consumers = 1
+    self.socket.once(&#x27;connect&#x27;, self._onSocketConnectBound)
+  }
+
+  self.socket.on(&#x27;data&#x27;, self._onSocketDataBound)
+  self.socket.once(&#x27;close&#x27;, self._onSocketCloseBound)
+  self.socket.once(&#x27;error&#x27;, self._onSocketErrorBound)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+self.retries = 0
+self.reconnectTimer = null
+
+// Simple boolean flag to track whether the socket has received data from
+// the websocket server since the last time socket.send() was called.
+self.expectingResponse = false
+
+self.<span class="apidocCodeKeywordSpan">_openSocket</span>()
+}
+
+WebSocketTracker.prototype.DEFAULT_ANNOUNCE_INTERVAL = 30 * 1000 // 30 seconds
+
+WebSocketTracker.prototype.announce = function (opts) {
+var self = this
+if (self.destroyed || self.reconnecting) return
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype._send" id="apidoc.element.bittorrent-tracker.websocket_tracker.prototype._send">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>_send
+        <span class="apidocSignatureSpan">(params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_send = function (params) {
+  var self = this
+  if (self.destroyed) return
+  self.expectingResponse = true
+  var message = JSON.stringify(params)
+  debug(&#x27;send %s&#x27;, message)
+  self.socket.send(message)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+info_hash: self.client._infoHashBinary,
+peer_id: self.client._peerIdBinary
+  })
+  if (self._trackerId) params.trackerid = self._trackerId
+
+  if (opts.event === &#x27;stopped&#x27; || opts.event === &#x27;completed&#x27;) {
+// Don&#x27;t include offers with &#x27;stopped&#x27; or &#x27;completed&#x27; event
+self.<span class="apidocCodeKeywordSpan">_send</span>(params)
+  } else {
+// Limit the number of offers that are generated, since it can be slow
+var numwant = Math.min(opts.numwant, 10)
+
+self._generateOffers(numwant, function (offers) {
+  params.numwant = numwant
+  params.offers = offers
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype._startReconnectTimer" id="apidoc.element.bittorrent-tracker.websocket_tracker.prototype._startReconnectTimer">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>_startReconnectTimer
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_startReconnectTimer = function () {
+  var self = this
+  var ms = Math.floor(Math.random() * RECONNECT_VARIANCE) + Math.min(Math.pow(2, self.retries) * RECONNECT_MINIMUM, RECONNECT_MAXIMUM
+)
+
+  self.reconnecting = true
+  clearTimeout(self.reconnectTimer)
+  self.reconnectTimer = setTimeout(function () {
+    self.retries++
+    self._openSocket()
+  }, ms)
+  if (self.reconnectTimer.unref) self.reconnectTimer.unref()
+
+  debug(&#x27;reconnecting socket in %s ms&#x27;, ms)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+})
+}
+
+WebSocketTracker.prototype._onSocketClose = function () {
+var self = this
+if (self.destroyed) return
+self.destroy()
+self.<span class="apidocCodeKeywordSpan">_startReconnectTimer</span>()
+}
+
+WebSocketTracker.prototype._onSocketError = function (err) {
+var self = this
+if (self.destroyed) return
+self.destroy()
+// errors will often happen if a tracker is offline, so don&#x27;t treat it as fatal
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype.announce" id="apidoc.element.bittorrent-tracker.websocket_tracker.prototype.announce">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>announce
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">announce = function (opts) {
+  var self = this
+  if (self.destroyed || self.reconnecting) return
+  if (!self.socket.connected) {
+    self.socket.once(&#x27;connect&#x27;, function () {
+      self.announce(opts)
+    })
+    return
+  }
+
+  var params = extend(opts, {
+    action: &#x27;announce&#x27;,
+    info_hash: self.client._infoHashBinary,
+    peer_id: self.client._peerIdBinary
+  })
+  if (self._trackerId) params.trackerid = self._trackerId
+
+  if (opts.event === &#x27;stopped&#x27; || opts.event === &#x27;completed&#x27;) {
+    // Don&#x27;t include offers with &#x27;stopped&#x27; or &#x27;completed&#x27; event
+    self._send(params)
+  } else {
+    // Limit the number of offers that are generated, since it can be slow
+    var numwant = Math.min(opts.numwant, 10)
+
+    self._generateOffers(numwant, function (offers) {
+      params.numwant = numwant
+      params.offers = offers
+      self._send(params)
+    })
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var self = this
+  if (intervalMs == null) intervalMs = self.DEFAULT_ANNOUNCE_INTERVAL
+
+  clearInterval(self.interval)
+
+  if (intervalMs) {
+    self.interval = setInterval(function () {
+      self.<span class="apidocCodeKeywordSpan">announce</span>(self.client._defaultAnnounceOpts())
+    }, intervalMs)
+    if (self.interval.unref) self.interval.unref()
+  }
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype.destroy" id="apidoc.element.bittorrent-tracker.websocket_tracker.prototype.destroy">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>destroy
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">destroy = function (cb) {
+  var self = this
+  if (!cb) cb = noop
+  if (self.destroyed) return cb(null)
+
+  self.destroyed = true
+
+  clearInterval(self.interval)
+  clearTimeout(self.reconnectTimer)
+
+  // Destroy peers
+  for (var peerId in self.peers) {
+    var peer = self.peers[peerId]
+    clearTimeout(peer.trackerTimeout)
+    peer.destroy()
+  }
+  self.peers = null
+
+  if (self.socket) {
+    self.socket.removeListener(&#x27;connect&#x27;, self._onSocketConnectBound)
+    self.socket.removeListener(&#x27;data&#x27;, self._onSocketDataBound)
+    self.socket.removeListener(&#x27;close&#x27;, self._onSocketCloseBound)
+    self.socket.removeListener(&#x27;error&#x27;, self._onSocketErrorBound)
+    self.socket = null
+  }
+
+  self._onSocketConnectBound = null
+  self._onSocketErrorBound = null
+  self._onSocketDataBound = null
+  self._onSocketCloseBound = null
+
+  if (socketPool[self.announceUrl]) {
+    socketPool[self.announceUrl].consumers -= 1
+  }
+
+  // Other instances are using the socket, so there&#x27;s nothing left to do here
+  if (socketPool[self.announceUrl].consumers &#x3e; 0) return cb()
+
+  var socket = socketPool[self.announceUrl]
+  delete socketPool[self.announceUrl]
+  socket.on(&#x27;error&#x27;, noop) // ignore all future errors
+  socket.once(&#x27;close&#x27;, cb)
+
+  // If there is no data response expected, destroy immediately.
+  if (!self.expectingResponse) return destroyCleanup()
+
+  // Otherwise, wait a short time for potential responses to come in from the
+  // server, then force close the socket.
+  var timeout = setTimeout(destroyCleanup, common.DESTROY_TIMEOUT)
+
+  // But, if a response comes from the server before the timeout fires, do cleanup
+  // right away.
+  socket.once(&#x27;data&#x27;, destroyCleanup)
+
+  function destroyCleanup () {
+    if (timeout) {
+      clearTimeout(timeout)
+      timeout = null
+    }
+    socket.removeListener(&#x27;data&#x27;, destroyCleanup)
+    socket.destroy()
+    socket = null
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+customParam: &#x27;blah&#x27; // custom parameters supported
+})
+
+// stop getting peers from the tracker, gracefully leave the swarm
+client.stop()
+
+// ungracefully leave the swarm (without sending final &#x27;stop&#x27; message)
+client.<span class="apidocCodeKeywordSpan">destroy</span>()
+
+// scrape
+client.scrape()
+
+client.on(&#x27;scrape&#x27;, function (data) {
+console.log(&#x27;got a scrape response from tracker: &#x27; + data.announce)
+console.log(&#x27;number of seeders in the swarm: &#x27; + data.complete)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bittorrent-tracker.websocket_tracker.prototype.scrape" id="apidoc.element.bittorrent-tracker.websocket_tracker.prototype.scrape">
+        function <span class="apidocSignatureSpan">bittorrent-tracker.websocket_tracker.prototype.</span>scrape
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">scrape = function (opts) {
+  var self = this
+  if (self.destroyed || self.reconnecting) return
+  if (!self.socket.connected) {
+    self.socket.once(&#x27;connect&#x27;, function () {
+      self.scrape(opts)
+    })
+    return
+  }
+
+  var infoHashes = (Array.isArray(opts.infoHash) &#x26;&#x26; opts.infoHash.length &#x3e; 0)
+    ? opts.infoHash.map(function (infoHash) {
+      return infoHash.toString(&#x27;binary&#x27;)
+    })
+    : (opts.infoHash &#x26;&#x26; opts.infoHash.toString(&#x27;binary&#x27;)) || self.client._infoHashBinary
+  var params = {
+    action: &#x27;scrape&#x27;,
+    info_hash: infoHashes
+  }
+
+  self._send(params)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// stop getting peers from the tracker, gracefully leave the swarm
+client.stop()
+
+// ungracefully leave the swarm (without sending final &#x27;stop&#x27; message)
+client.destroy()
+
+// scrape
+client.<span class="apidocCodeKeywordSpan">scrape</span>()
+
+client.on(&#x27;scrape&#x27;, function (data) {
+  console.log(&#x27;got a scrape response from tracker: &#x27; + data.announce)
+  console.log(&#x27;number of seeders in the swarm: &#x27; + data.complete)
+  console.log(&#x27;number of leechers in the swarm: &#x27; + data.incomplete)
+  console.log(&#x27;number of total downloads of this torrent: &#x27; + data.downloaded)
+})
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
